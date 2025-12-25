@@ -18,7 +18,10 @@ import {
   Menu,
   X,
   FileText,
-  Rocket
+  Rocket,
+  MoreVertical,
+  User,
+  LayoutGrid
 } from 'lucide-react';
 
 // --- Types ---
@@ -53,17 +56,17 @@ interface Project {
 // --- Components ---
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('');
 
   const navLinks = [
-    { name: 'About', href: '#about' },
-    { name: 'Experience', href: '#experience' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Education', href: '#education' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'About', href: '#about', icon: User },
+    { name: 'Experience', href: '#experience', icon: Briefcase },
+    { name: 'Projects', href: '#projects', icon: Rocket },
+    { name: 'Skills', href: '#skills', icon: Code2 },
+    { name: 'Education', href: '#education', icon: GraduationCap },
+    { name: 'Contact', href: '#contact', icon: Mail },
   ];
 
   useEffect(() => {
@@ -88,11 +91,13 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
+
   return (
     <header>
       <nav 
         aria-label="Main navigation"
-        className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/80 backdrop-blur-md shadow-sm py-3' : 'bg-transparent py-5'}`}
+        className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/90 backdrop-blur-md shadow-sm py-3' : 'bg-transparent py-5'}`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center">
@@ -114,46 +119,90 @@ const Navbar = () => {
                 >
                   {link.name}
                   {activeSection === link.href && (
-                    <span className="absolute bottom-0 left-0 w-full h-0.5 bg-blue-600 rounded-full animate-in fade-in slide-in-from-bottom-1 duration-300" />
+                    <span className="absolute bottom-0 left-0 w-full h-0.5 bg-blue-600 rounded-full" />
                   )}
                 </a>
               ))}
             </div>
 
-            {/* Mobile Menu Button */}
+            {/* Mobile Menu Trigger (Dot Icon) */}
             <div className="md:hidden">
               <button 
-                onClick={() => setIsOpen(!isOpen)} 
-                className="text-slate-600 focus:outline-none"
-                aria-expanded={isOpen}
-                aria-label="Toggle menu"
+                onClick={toggleSidebar} 
+                className={`p-2 rounded-full transition-colors ${scrolled ? 'bg-slate-100 text-slate-900' : 'bg-white/20 text-slate-800 backdrop-blur-md'}`}
+                aria-label="Open navigation menu"
               >
-                {isOpen ? <X /> : <Menu />}
+                <MoreVertical size={24} />
               </button>
             </div>
           </div>
         </div>
+      </nav>
 
-        {/* Mobile Nav */}
-        {isOpen && (
-          <div className="md:hidden absolute top-full left-0 w-full bg-white border-t border-slate-100 shadow-xl">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-              {navLinks.map((link) => (
+      {/* Sidebar Overlay */}
+      <div 
+        className={`fixed inset-0 z-[60] bg-slate-900/40 backdrop-blur-sm transition-opacity duration-300 md:hidden ${isSidebarOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
+        onClick={toggleSidebar}
+      />
+
+      {/* Slide-out Sidebar */}
+      <aside 
+        className={`fixed top-0 right-0 h-full w-72 z-[70] bg-white shadow-2xl transform transition-transform duration-300 ease-in-out md:hidden ${isSidebarOpen ? 'translate-x-0' : 'translate-x-full'}`}
+      >
+        <div className="flex flex-col h-full">
+          <div className="p-6 flex items-center justify-between border-b border-slate-100">
+            <span className="text-xl font-bold text-slate-900">Navigation</span>
+            <button 
+              onClick={toggleSidebar}
+              className="p-2 text-slate-400 hover:text-slate-900 hover:bg-slate-50 rounded-lg transition-colors"
+            >
+              <X size={20} />
+            </button>
+          </div>
+
+          <nav className="flex-1 px-4 py-8 space-y-2 overflow-y-auto">
+            {navLinks.map((link) => {
+              const Icon = link.icon;
+              return (
                 <a 
                   key={link.name} 
                   href={link.href}
-                  onClick={() => setIsOpen(false)}
-                  className={`block px-3 py-4 text-base font-medium rounded-md ${
-                    activeSection === link.href ? 'bg-blue-50 text-blue-600' : 'text-slate-700 hover:bg-slate-50'
+                  onClick={() => setIsSidebarOpen(false)}
+                  className={`flex items-center gap-4 px-4 py-4 rounded-xl text-base font-medium transition-all ${
+                    activeSection === link.href 
+                      ? 'bg-blue-600 text-white shadow-lg shadow-blue-200' 
+                      : 'text-slate-600 hover:bg-slate-50 hover:text-blue-600'
                   }`}
                 >
+                  <Icon size={20} />
                   {link.name}
+                  {activeSection === link.href && <ChevronRight size={16} className="ml-auto opacity-70" />}
                 </a>
-              ))}
+              );
+            })}
+          </nav>
+
+          <div className="p-6 border-t border-slate-100 bg-slate-50/50">
+            <p className="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-4">Connect with me</p>
+            <div className="flex gap-4">
+              <a 
+                href="https://www.linkedin.com/in/parth-pahanpate-7b1054280" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="p-3 bg-white rounded-xl text-blue-600 shadow-sm hover:scale-110 transition-transform"
+              >
+                <Linkedin size={18} />
+              </a>
+              <a 
+                href="mailto:parthpahanpate9977@gmail.com" 
+                className="p-3 bg-white rounded-xl text-slate-600 shadow-sm hover:scale-110 transition-transform"
+              >
+                <Mail size={18} />
+              </a>
             </div>
           </div>
-        )}
-      </nav>
+        </div>
+      </aside>
     </header>
   );
 };
@@ -369,8 +418,11 @@ const App = () => {
                 </div>
 
                 <div className="flex flex-wrap justify-center lg:justify-start gap-4">
-                  <a href="#contact" className="px-8 py-3 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-700 transition-all shadow-xl shadow-blue-200 flex items-center gap-2">
-                    Contact Me <ChevronRight size={20} aria-hidden="true" />
+                  <a 
+                    href="mailto:parthpahanpate9977@gmail.com" 
+                    className="px-8 py-3 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-700 transition-all shadow-xl shadow-blue-200 flex items-center gap-2"
+                  >
+                    <Mail size={20} aria-hidden="true" /> Email Me
                   </a>
                   <a 
                      href="https://www.linkedin.com/in/parth-pahanpate-7b1054280" 
