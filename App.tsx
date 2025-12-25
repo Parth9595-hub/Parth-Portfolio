@@ -72,7 +72,7 @@ const Navbar = () => {
 
       // Simple active section detection
       const sections = navLinks.map(link => link.href.substring(1));
-      for (const sectionId of sections.reverse()) {
+      for (const sectionId of [...sections].reverse()) {
         const element = document.getElementById(sectionId);
         if (element) {
           const rect = element.getBoundingClientRect();
@@ -97,8 +97,8 @@ const Navbar = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center">
             <div className="flex-shrink-0">
-              <a href="#" className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600">
-                P.Pahanpate
+              <a href="#" className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600">
+                Parth
               </a>
             </div>
             
@@ -118,15 +118,6 @@ const Navbar = () => {
                   )}
                 </a>
               ))}
-            </div>
-
-            <div className="hidden md:block">
-              <a 
-                href="mailto:parthpahanpate9977@gmail.com"
-                className="px-5 py-2 bg-blue-600 text-white text-sm font-semibold rounded-full hover:bg-blue-700 transition-all shadow-lg shadow-blue-200"
-              >
-                Hire Me
-              </a>
             </div>
 
             {/* Mobile Menu Button */}
