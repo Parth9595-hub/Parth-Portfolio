@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Ultrasonic Distance System - Documentation</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link id="prism-css" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+    
+    <style>
+        /* Styles for the expandable code block */
+        .code-container {
+            position: relative;
+            max-height: 400px; /* Initial height */
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+        .code-container.expanded {
+            max-height: none;
+        }
+        .show-more-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(transparent, rgba(255,255,255,0.9));
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            padding-bottom: 20px;
+        }
+        .code-container.expanded .show-more-overlay {
+            position: static;
+            background: none;
+            height: auto;
+            padding-top: 10px;
+        }
+        .btn-show-more {
+            padding: 10px 20px;
+            background-color: #00979d;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        /* Dark mode adjustment for overlay if applicable */
+        body.dark-mode .show-more-overlay {
+            background: linear-gradient(transparent, rgba(30,30,30,0.9));
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo" style="text-decoration: none; color: inherit;">ArduinoHub</a>
+        <div class="nav-links">
+            <a href="#story">Projects</a>
+            <a href="#comments">Community</a>
+            <button id="dark-mode-toggle" class="btn-icon" title="Toggle Dark Mode">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div class="container">
+        
+        <header class="project-header">
+            <h1>IoT-Based Smart Energy Meter with Real-Time Monitoring</h1>
+            <div class="meta-info">
+                <span class="badge">PRO</span>
+                <span class="stats">
+                    <i class="fas fa-eye"></i> 5,720 views &nbsp;
+                    <i class="fas fa-calendar-alt"></i> Updated Mar 2026
+                </span>
+            </div>
+            <p class="summary">
+                 This project is designed to monitor real-time electricity consumption using an ESP32/ESP8266 and a non-invasive current sensor. It allows users to track their energy usage via a web dashboard or mobile app, helping to promote energy efficiency and reduce utility costs.
+            </p>
+            <div class="tags">
+                <span class="tag">Automation</span>
+                <span class="tag">C++</span>
+                <span class="tag">Eletronics Components</span>
+            </div>
+        </header>
+
+        
+        <div class="content-wrapper">
+            
+            <main class="main-content">
+                
+                <div class="carousel-container">
+                    <div class="mySlides fade">
+                        <div class="numbertext">1 / 5</div>
+                        <img src="images/circuit.png" style="width:100%" alt="Hardware Setup">
+                        <div class="text">Figure 1: Complete Hardware Setup</div>
+                    </div>
+                    <div class="mySlides fade">
+                        <div class="numbertext">2 / 5</div>
+                        <img src="images/photo 3.jpeg" style="width:100%" alt="Circuit Wiring">
+                        <div class="text">Figure 2: Breadboard Wiring Detail</div>
+                    </div>
+                    <div class="mySlides fade">
+                        <div class="numbertext">3 / 5</div>
+                        <img src="images/photo 2.jpeg" style="width:100%" alt="LCD Output">
+                        <div class="text">Figure 3: LCD Display Output</div>
+                    </div>
+                    <div class="mySlides fade">
+                        <div class="numbertext">4 / 5</div>
+                        <img src="images/photo 1.jpeg" style="width:100%" alt="LCD Output">
+                        <div class="text">Figure 3: LCD Display Output</div>
+                    </div>
+                    <div class="mySlides fade">
+                        <div class="numbertext">5 / 5</div>
+                        <img src="images/photo 4.jpeg" style="width:100%" alt="LCD Output">
+                        <div class="text">Figure 3: LCD Display Output</div>
+                    </div>
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                    <div style="text-align:center; margin-top:10px;">
+                        <span class="dot" onclick="currentSlide(1)"></span> 
+                        <span class="dot" onclick="currentSlide(2)"></span> 
+                        <span class="dot" onclick="currentSlide(3)"></span>
+                        <span class="dot" onclick="currentSlide(4)"></span>
+                        <span class="dot" onclick="currentSlide(5)"></span> 
+                    </div>
+                </div>
+
+                <br>
+                <div class="media-section">
+            <div class="video-wrapper">
+                <iframe src="images/video1.mp4" title="Project Video" allowfullscreen></iframe>
+                <div class="video-placeholder-overlay">
+                    <i class="fas fa-play-circle"></i>
+                    <p>Watch Project Demo</p>
+                </div>
+            </div>
+        </div>
+
+                <section id="story">
+                    <h2>Project Overview</h2>
+                    <p> 1. IntroductionThe Smart Energy Meter is an IoT-enabled device designed to bridge the gap between utility providers and consumers. Unlike traditional meters, this system provides real-time data on voltage, current, power, and total energy consumption (kWh). By integrating the ESP32 with cloud platforms like Blynk, users can monitor their electrical load from anywhere in the world, helping to identify energy-hungry appliances and reduce electricity bills.</p>
+                    <p> 2. System Architecture & Working PrincipleThe system follows a linear data processing flow: Sensing → Processing → Communication → Visualization.Voltage Sensing: The ZMPT101B voltage transformer samples the AC mains. it shifts the high AC voltage to a low-voltage signal that the ESP32 can safely read.Current Sensing: The ACS712 Hall-effect sensor measures the magnetic field generated by the current passing through the load wire, converting it into a proportional analog voltage.Data Processing: The ESP32 micro-controller calculates the Root Mean Square (RMS) values for Voltage and Current .Power Calculation: Real-time power is calculated using the formula:P = V \I Energy Accumulation: Energy is calculated by integrating power over time. This data is stored in the EEPROM every 60 seconds to ensure the reading is not lost during a power failure.</p>
+                    
+                    <h3>Hardware Architecture</h3>
+                    <ul>
+                        <li><strong>Microcontroller:</strong> ESP 32S Node MCU</li>
+                        <li><strong>Sensing Components:</strong> Voltage and Current Sensor </li>
+                        <li><strong>Visual Output:</strong> 16x2 I2C LCD Display</li>
+                        <li><strong>Connectivity:</strong> Blynk Mobile to ESP32s</li>
+                    </ul>
+
+                    <div class="alert-box green">
+                        <strong>Extensions Used:</strong> Download all the Extension used in Arduino ide Given in the start of the code with #include < Extension >
+                    </div>
+                    <div class="alert-box yellow">
+                        <strong>Blynk App Connection:</strong> Create gauge for Voltage , Current , Power and Unit in Blynk app and do not foreget to write your mobile hotpost name and password on given area in code and create the token and paste the token in the code.
+                    </div>
+                    <div class="alert-box red">
+                        <strong>Danger :</strong> Apply eletrical insulation tape all the visible copper wire , Proper Connection are necessary 
+                    </div>
+                </section>
+
+                <section id="code">
+                    <h2>Arduino Code</h2>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span>main.ino</span>
+                            <button class="copy-btn"><i class="fas fa-copy"></i> Copy</button>
+                        </div>
+                        
+                        <div id="code-container" class="code-container">
+                            <pre><code class="language-cpp">
+#define BLYNK_TEMPLATE_ID "TMPL3izzS6fjK"
+#define BLYNK_TEMPLATE_NAME "Energy Meter"
+#define BLYNK_AUTH_TOKEN "PASTE_YOUR_AUTH_TOKEN"
+
+// ================= LIBRARIES =================
+#include "WiFi.h"
+#include "WiFiClient.h"
+#include "BlynkSimpleEsp32.h"
+#include "Wire.h"
+#include "U8g2lib.h"
+#include "ACS712.h"
+#include "ZMPT101B.h"
+#include "EEPROM.h"
+
+// ================= WIFI =================
+char ssid[] = "YOUR_WIFI_NAME";
+char pass[] = "YOUR_WIFI_PASSWORD";
+
+// ================= OLED (SH1106) =================
+U8G2_SH1106_128X64_NONAME_F_HW_I2C u8g2(U8G2_R0, U8X8_PIN_NONE);
+
+// ================= SENSORS =================
+ACS712 ACS(34, 3.3, 4095, 125);
+ZMPT101B voltageSensor(35, 50.0);
+
+// ================= VARIABLES =================
+float unit = 0;
+int volt = 0;
+int current = 0;
+int power = 0;
+
+#define EEPROM_SIZE 512
+#define UNIT_ADDRESS 0
+
+unsigned long lastEEPROMsave = 0;
+
+// ================= BLYNK =================
+BLYNK_CONNECTED() {
+  Blynk.syncVirtual(V0);
+  Blynk.syncVirtual(V1);
+  Blynk.syncVirtual(V2);
+  Blynk.syncVirtual(V3);
+}
+
+// ================= SETUP =================
+void setup() {
+
+  Serial.begin(115200);
+
+  EEPROM.begin(EEPROM_SIZE);
+  unit = EEPROM.readFloat(UNIT_ADDRESS);
+  if (isnan(unit)) unit = 0.0;
+
+  // OLED start
+  Wire.begin(21,22);
+  u8g2.begin();
+
+  // Startup screen (SHORT)
+  u8g2.clearBuffer();
+  u8g2.setFont(u8g2_font_ncenB08_tr);
+  u8g2.drawStr(15,30,"Energy Meter");
+  u8g2.sendBuffer();
+  delay(400);   // short startup display
+
+  // Sensor calibration
+  ACS.autoMidPoint();
+  voltageSensor.setSensitivity(500.0f);
+
+  // WiFi + Blynk
+  Blynk.begin(BLYNK_AUTH_TOKEN, ssid, pass);
+}
+
+// ================= LOOP =================
+void loop() {
+
+  Blynk.run();
+
+  // -------- CURRENT --------
+  float average = 0;
+  for(int i=0;i <100;i++){
+    average += ACS.mA_AC();
+  }
+
+  float mA = average / 100.0;
+  if(mA < 5) mA = 0;
+  current = mA;
+
+  // -------- VOLTAGE --------
+  float voltage = voltageSensor.getRmsVoltage();
+  if(voltage < 50) voltage = 0;
+  volt = voltage;
+
+  // -------- POWER --------
+  float watt = voltage * (mA / 1000.0);
+  power = watt;
+
+  // -------- ENERGY CALCULATION --------
+  float hours = 0.5 / 3600.0;   // loop runs every 0.5 sec
+  unit += (watt * hours) / 1000.0;
+
+  // ============ OLED DISPLAY =================
+  u8g2.clearBuffer();
+  u8g2.setFont(u8g2_font_6x12_tr);
+
+  char line1[32];
+  sprintf(line1,"V:%dV C:%dmA",volt,current);
+  u8g2.drawStr(0,20,line1);
+
+  char line2[32];
+  sprintf(line2,"P:%dW U:%.2fkWh",power,unit);
+  u8g2.drawStr(0,40,line2);
+
+  u8g2.sendBuffer();
+
+  // ============ SERIAL MONITOR ============
+  Serial.print("Voltage: "); Serial.println(volt);
+  Serial.print("Current: "); Serial.println(current);
+  Serial.print("Power: "); Serial.println(power);
+  Serial.print("Energy: "); Serial.println(unit,4);
+
+  // ================= EEPROM SAVE (every 60 sec) =================
+  if(millis() - lastEEPROMsave > 60000){
+    EEPROM.writeFloat(UNIT_ADDRESS, unit);
+    EEPROM.commit();
+    lastEEPROMsave = millis();
+  }
+
+  // ================= BLYNK UPDATE =================
+  Blynk.virtualWrite(V0, volt);
+  Blynk.virtualWrite(V1, current);
+  Blynk.virtualWrite(V2, power);
+  Blynk.virtualWrite(V3, unit);
+
+  delay(500);
+}
+                            </code></pre>
+                            <div class="show-more-overlay" id="overlay">
+                                <button class="btn-show-more" id="show-more-code">Show Full Code</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="comments" class="comments-section">
+                    <h2>Discussion</h2>
+                    
+                    <div id="comment-list">
+                        <div class="comment">
+                            <div class="comment-avatar"><i class="fas fa-user"></i></div>
+                            <div class="comment-body">
+                                <h4>TechGuru99 <span class="comment-date">2 days ago</span></h4>
+                                <p>Great project! Does this work with the ESP32 as well?</p>
+                            </div>
+                        </div>
+
+                        <div class="comment">
+                            <div class="comment-avatar"><i class="fas fa-user-circle"></i></div>
+                            <div class="comment-body">
+                                <h4>MakerJoe <span class="comment-date">1 day ago</span></h4>
+                                <p>Yes, just change the pin definitions and use 3.3V logic.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="hidden-comments" style="display: none;">
+                        <div class="comment">
+                            <div class="comment-avatar"><i class="fas fa-robot"></i></div>
+                            <div class="comment-body">
+                                <h4>ArduinoFan <span class="comment-date">12 hours ago</span></h4>
+                                <p>Thanks for the code! I used this for my college project.</p>
+                            </div>
+                        </div>
+                        <div class="comment">
+                            <div class="comment-avatar"><i class="fas fa-bolt"></i></div>
+                            <div class="comment-body">
+                                <h4>ElectroWizard <span class="comment-date">5 hours ago</span></h4>
+                                <p>Can you add a fritzing diagram? That would be helpful.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button id="load-more-btn" class="btn-secondary">Load More Comments</button>
+
+                    <div class="comment-input-area">
+                        <textarea id="comment-text" placeholder="Leave a comment..."></textarea>
+                        <button id="post-comment-btn" class="btn-primary">Post Comment</button>
+                    </div>
+                </section>
+
+            </main>
+
+            <aside class="sidebar-wrapper">
+                <div class="sidebar-sticky">
+                    
+                    <div class="widget author-widget">
+                        <div class="author-header">
+                            <img src="https://placehold.co/60x60/00979d/ffffff?text=PP" alt="Author" class="author-img">
+                            <div>
+                                <h4>Parth Pahanpate</h4>
+                                <span class="author-role">Electrical Engineer</span>
+                            </div>
+                        </div>
+                        <p>Passinated about Engineering and Innovation</p>
+                        
+                        <a href="www.linkedin.com/in/parth-pahanpate-7b1054280" target="_blank" class="btn-linkedin">
+                            <i class="fab fa-linkedin"></i> Connect on LinkedIn
+                        </a>
+                    </div>
+
+                    <div class="widget toc-widget">
+                        <h3>Table of Contents</h3>
+                        <ul>
+                            <li><a href="#story" class="toc-link">Project Story</a></li>
+                            <li><a href="#matlab" class="toc-link">MATLAB Visualization</a></li>
+                            <li><a href="#code" class="toc-link">Arduino Code</a></li>
+                            <li><a href="#comments" class="toc-link">Discussion</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="widget tools-widget">
+                        <h3><i class="fas fa-toolbox"></i> Tools & Apps</h3>
+                        <ul class="component-list">
+                            <li><i class="fas fa-laptop-code"></i> Arduino IDE software</li>
+                            <li><i class="fas fa-plus"></i> plyers</li>
+                            <li><i class="fas fa-plus"></i> jumper wire and normal wire</li>
+                            <li><i class="fas fa-plus"></i> Soldering Iron</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="widget tools-widget">
+                        <h3><i class="fas fa-toolbox"></i> Components Needed</h3>
+                        <ul class="component-list">
+                            <li><i class="fas fa-microchip"></i> Esp32s Node MCU</li>
+                            <li><i class="fa-solid fa-plus"></i> ACS712 (current sensor 30A Module)</li>
+                            <li><i class="fa-solid fa-bolt"></i> ZMPT101B Module (Voltage sensor)</li>
+                            <li><i class="fas fa-laptop"></i> OLED I2C Display SH1106 (128x64)</li>
+                            <li><i class="fas fa-burn"></i> Extension board</li>
+                            <li> <i class="fa-duotone fa-solid fa-chess-board"></i> Breadboard</li>
+                        </ul>
+                    </div>
+
+                    <div class="widget download-widget">
+                        <h3><i class="fas fa-download"></i> Downloads</h3>
+                        
+                        <a href="data:text/plain;charset=utf-8,Your Arduino Code Here" download="project_code.ino" class="download-link">
+                            <i class="fas fa-file-code"></i> Source Code (.ino)
+                        </a>
+                        
+                        <a href="data:text/plain;charset=utf-8,Matlab Script Content" download="script.m" class="download-link">
+                            <i class="fas fa-chart-line"></i> MATLAB Script (.m)
+                        </a>
+                        
+                        <a href="data:application/pdf;base64,JVBERi..." download="documentation.pdf" class="download-link">
+                            <i class="fas fa-file-pdf"></i> Documentation (.pdf)
+                        </a>
+                    </div>
+
+                    <div class="widget components-widget">
+                        <h3>Where to Buy</h3>
+                        <div class="buy-suggestions">
+                            <a href="#" target="_blank">Amazon</a> • 
+                            <a href="#" target="_blank">Robu.in</a> • 
+                            <a href="#" target="_blank">Zobotic</a>
+                        </div>
+                    </div>
+
+                </div>
+            </aside>
+
+        </div>
+    </div>
+
+    <button id="back-to-top" title="Go to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-c.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-matlab.min.js"></script>
+    
+    <script src="script.js"></script>
+
+    <script>
+        // Script for the Show More Button
+        document.getElementById('show-more-code').addEventListener('click', function() {
+            const container = document.getElementById('code-container');
+            const overlay = document.getElementById('overlay');
+            
+            if (container.classList.contains('expanded')) {
+                container.classList.remove('expanded');
+                this.textContent = 'Show Full Code';
+                window.location.hash = '#code'; // Scroll back to code start
+            } else {
+                container.classList.add('expanded');
+                this.textContent = 'Show Less';
+            }
+        });
+    </script>
+</body>
+</html>
