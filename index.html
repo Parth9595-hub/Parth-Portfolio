@@ -3,7 +3,7 @@
 <head>
 
      <title>Parth Pahanpate - Engineering Portfolio</title>
-<meta charset="UTF-8">
+     <meta charset="UTF-8">
      <meta http-equiv="X-UA-Compatible" content="IE=Edge">
      <meta name="description" content="Engineering Portfolio of Parth Pahanpate">
      <meta name="keywords" content="Engineering, IoT, Embedded Systems, Portfolio">
@@ -46,6 +46,14 @@
         body.dark-mode .team-info h3, body.dark-mode .menu-item h3 { color: #ce3232 !important; } /* Keep accents red */
         body.dark-mode .footer-info { background: transparent; }
         body.dark-mode footer { background-color: #000; border-top: 1px solid #333; }
+
+        /* FIX: Force uniform size for all project images so the grid doesn't break */
+        .menu-thumb img {
+            width: 100%;
+            height: 250px; 
+            object-fit: cover; 
+            border-radius: 4px 4px 0 0; 
+        }
      </style>
 
 </head>
@@ -75,7 +83,6 @@
                     <ul class="nav navbar-nav navbar-nav-first">
                          <li><a href="#home" class="smoothScroll">Home</a></li>
                          <li><a href="#about" class="smoothScroll">About</a></li>
-                         <li><a href="#team" class="smoothScroll">Skills</a></li>
                          <li><a href="#menu" class="smoothScroll">Projects</a></li>
                          <li><a href="#contact" class="smoothScroll">Contact</a></li>
                     </ul>
@@ -117,7 +124,7 @@
                                         <div class="col-md-8 col-sm-12">
                                              <h3>IoT & Embedded Systems</h3>
                                              <h1>Bridging Hardware with Modern Software</h1>
-                                             <a href="#team" class="section-btn btn btn-default smoothScroll">See My Skills</a>
+                                             <a href="#about" class="section-btn btn btn-default smoothScroll">Learn More</a>
                                         </div>
                                    </div>
                               </div>
@@ -146,12 +153,12 @@
 
                     <div class="col-md-6 col-sm-12">
                          <div class="about-info">
-                              <div class="section-title wow fadeInUp" data-wow-delay="0.2s">
+                              <div class="section-title wow fadeInUp" data-wow-delay="0.1s">
                                    <h4>Who am I?</h4>
                                    <h2>Engineering with Passion & Precision</h2>
                               </div>
 
-                              <div class="wow fadeInUp" data-wow-delay="0.2s">
+                              <div class="wow fadeInUp" data-wow-delay="0.1s">
                                    <p>I am an Electrical Engineering student with a strong focus on embedded systems, IoT, and automation. My passion lies in bridging the gap between hardware and software to create efficient, real-world solutions.</p>
                                    <p>From designing complex circuits to programming microcontrollers like the ESP32 and Arduino, I enjoy every step of the engineering process. I am constantly learning new technologies like MATLAB and Web Development to enhance my project visualization capabilities.</p>
                               </div>
@@ -159,69 +166,8 @@
                     </div>
 
                     <div class="col-md-6 col-sm-12">
-                         <div class="wow fadeInUp about-image" data-wow-delay="0.6s">
+                         <div class="wow fadeInUp about-image" data-wow-delay="0.2s">
                               <img src="images/about-image.jpg" class="img-responsive" alt="Parth Pahanpate">
-                         </div>
-                    </div>
-                    
-               </div>
-          </div>
-     </section>
-
-
-     <section id="team" data-stellar-background-ratio="0.5">
-          <div class="container">
-               <div class="row">
-
-                    <div class="col-md-12 col-sm-12">
-                         <div class="section-title wow fadeInUp" data-wow-delay="0.1s">
-                              <h2>Technical Skills</h2>
-                              <h4>My Core Competencies</h4>
-                         </div>
-                    </div>
-
-                    <div class="col-md-4 col-sm-4">
-                         <div class="team-thumb wow fadeInUp" data-wow-delay="0.2s">
-                              <img src="images/team-image1.jpg" class="img-responsive" alt="Embedded Systems">
-                                   <div class="team-hover">
-                                        <div class="team-item">
-                                             <h4>Arduino, ESP32, Sensors, Actuators, I2C/SPI</h4> 
-                                        </div>
-                                   </div>
-                         </div>
-                         <div class="team-info">
-                              <h3>Embedded Systems</h3>
-                              <p>Microcontrollers & IoT</p>
-                         </div>
-                    </div>
-
-                    <div class="col-md-4 col-sm-4">
-                         <div class="team-thumb wow fadeInUp" data-wow-delay="0.4s">
-                              <img src="images/team-image2.jpg" class="img-responsive" alt="Software">
-                                   <div class="team-hover">
-                                        <div class="team-item">
-                                             <h4>C++, Python, MATLAB, HTML/CSS, JavaScript</h4>
-                                        </div>
-                                   </div>
-                         </div>
-                         <div class="team-info">
-                              <h3>Programming</h3>
-                              <p>Software & Web</p>
-                         </div>
-                    </div>
-
-                    <div class="col-md-4 col-sm-4">
-                         <div class="team-thumb wow fadeInUp" data-wow-delay="0.6s">
-                              <img src="images/team-image3.jpg" class="img-responsive" alt="Electronics">
-                                   <div class="team-hover">
-                                        <div class="team-item">
-                                             <h4>Circuit Analysis, PCB Design, Soldering, Power Systems</h4>
-                                        </div>
-                                   </div>
-                         </div>
-                         <div class="team-info">
-                              <h3>Electrical Design</h3>
-                              <p>Circuits & Hardware</p>
                          </div>
                     </div>
                     
@@ -235,7 +181,7 @@
                <div class="row">
 
                     <div class="col-md-12 col-sm-12">
-                         <div class="section-title wow fadeInUp" data-wow-delay="0.1s">
+                         <div class="section-title wow fadeInUp" data-wow-delay="0s">
                               <h2>Project Portfolio</h2>
                               <h4>Recent Works & Prototypes</h4>
                          </div>
@@ -244,12 +190,12 @@
                     <div class="col-md-4 col-sm-6">
                          <div class="menu-thumb">
                               <a href="Product.html" target="_blank" title="View Project Documentation">
-                                   <img src="images/menu-image1.jpg" class="img-responsive" alt="Ultrasonic Project">
+                                   <img src="images/energymeter1.png" class="img-responsive" alt="IoT Smart Energy Meter">
 
                                    <div class="menu-info">
                                         <div class="menu-item">
-                                             <h3>Ultrasonic Distance System</h3>
-                                             <p>Arduino / MATLAB / IoT</p>
+                                             <h3>IoT-Based Smart Energy Meter</h3>
+                                             <p>ESP32 / Sensors / Web App</p>
                                         </div>
                                         <div class="menu-price">
                                              <span>View</span>
@@ -360,7 +306,7 @@
                <div class="row">
 
                     <div class="col-md-12 col-sm-12">
-                         <div class="section-title wow fadeInUp" data-wow-delay="0.1s">
+                         <div class="section-title wow fadeInUp" data-wow-delay="0s">
                               <h2>Education & Certifications</h2>
                          </div>
                     </div>  
@@ -402,34 +348,27 @@
      <section id="contact" data-stellar-background-ratio="0.5">
           <div class="container">
                <div class="row">
-     <div class="wow fadeInUp col-md-6 col-sm-12" data-wow-delay="0.4s">
-                         <div id="google-map">
-                              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3720.896767972051!2d79.2925!3d21.1458!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjHCsDA4JzQ0LjkiTiA3OcKwMTcnMzMuMCJF!5e0!3m2!1sen!2sin!4v1600000000000!5m2!1sen!2sin" allowfullscreen></iframe>
-                         </div>
-                    </div>    
+                    <div class="col-md-offset-2 col-md-8 col-sm-12">
 
-                    <div class="col-md-6 col-sm-12">
-
-                         <div class="col-md-12 col-sm-12">
-                              <div class="section-title wow fadeInUp" data-wow-delay="0.1s">
-                                   <h2>Contact Me</h2>
-                              </div>
+                         <div class="section-title wow fadeInUp" data-wow-delay="0s">
+                              <h2>Contact Me</h2>
+                              <p>Contact me for any quries you have and I'll get back to you via email soon .</p>
                          </div>
 
-                         <form action="https://formspree.io/f/YOUR_FORM_ID" method="post" class="wow fadeInUp" id="contact-form" role="form" data-wow-delay="0.8s">
+                         <form action="https://formspree.io/f/mlgppjpw" method="post" class="wow fadeInUp" id="contact-form" role="form" data-wow-delay="0.2s">
 
                               <div class="col-md-6 col-sm-6">
-                                   <input type="text" class="form-control" id="cf-name" name="name" placeholder="Full name">
+                                   <input type="text" class="form-control" id="cf-name" name="name" placeholder="Full name" required>
                               </div>
 
                               <div class="col-md-6 col-sm-6">
-                                   <input type="email" class="form-control" id="cf-email" name="email" placeholder="Email address">
+                                   <input type="email" class="form-control" id="cf-email" name="email" placeholder="Email address" required>
                               </div>
 
                               <div class="col-md-12 col-sm-12">
-                                   <input type="text" class="form-control" id="cf-subject" name="subject" placeholder="Subject">
+                                   <input type="text" class="form-control" id="cf-subject" name="subject" placeholder="Subject" required>
 
-                                   <textarea class="form-control" rows="6" id="cf-message" name="message" placeholder="Tell me about your project or inquiry"></textarea>
+                                   <textarea class="form-control" rows="6" id="cf-message" name="message" placeholder="Tell me about your project or inquiry" required></textarea>
 
                                    <button type="submit" class="form-control" id="cf-submit" name="submit">Send Message</button>
                               </div>
@@ -448,9 +387,9 @@
                     <div class="col-md-4 col-sm-8">
                          <div class="footer-info">
                               <div class="section-title">
-                                   <h2 class="wow fadeInUp" data-wow-delay="0.2s">Location</h2>
+                                   <h2 class="wow fadeInUp" data-wow-delay="0.1s">Location</h2>
                               </div>
-                              <address class="wow fadeInUp" data-wow-delay="0.4s">
+                              <address class="wow fadeInUp" data-wow-delay="0.2s">
                                    <p>Chandrapur, Maharashtra,<br> India - 442401</p>
                               </address>
                          </div>
@@ -459,11 +398,11 @@
                     <div class="col-md-4 col-sm-8">
                          <div class="footer-info">
                               <div class="section-title">
-                                   <h2 class="wow fadeInUp" data-wow-delay="0.2s">Contact</h2>
+                                   <h2 class="wow fadeInUp" data-wow-delay="0.1s">Contact</h2>
                               </div>
-                              <address class="wow fadeInUp" data-wow-delay="0.4s">
+                              <address class="wow fadeInUp" data-wow-delay="0.2s">
                                    <p>Available for freelance & collaboration</p>
-                                   <p><a href="mailto:your.email@gmail.com">your.email@gmail.com</a></p>
+                                   <p><a href="mailto:parthpahanpate9977@gmail.com">parthpahanpate9977@gmail.com</a></p>
                               </address>
                          </div>
                     </div>
@@ -471,9 +410,9 @@
                     <div class="col-md-4 col-sm-8">
                          <div class="footer-info footer-open-hour">
                               <div class="section-title">
-                                   <h2 class="wow fadeInUp" data-wow-delay="0.2s">Socials</h2>
+                                   <h2 class="wow fadeInUp" data-wow-delay="0.1s">Socials</h2>
                               </div>
-                              <div class="wow fadeInUp" data-wow-delay="0.4s">
+                              <div class="wow fadeInUp" data-wow-delay="0.2s">
                                    <ul class="social-icon">
                                         <li><a href="#" class="fa fa-linkedin-square" title="LinkedIn"></a></li>
                                         <li><a href="#" class="fa fa-github" title="GitHub"></a></li>
@@ -487,7 +426,7 @@
                
                <div class="row">
                     <div class="col-md-12 col-sm-12">
-                         <div class="wow fadeInUp copyright-text" data-wow-delay="0.8s"> 
+                         <div class="wow fadeInUp copyright-text" data-wow-delay="0.3s"> 
                               <p><br>Copyright © 2026 Parth Pahanpate 
                               <br>Engineering Portfolio</p>
                          </div>
