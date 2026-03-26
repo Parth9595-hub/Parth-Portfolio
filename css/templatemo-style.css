@@ -1,7 +1,7 @@
 /*
 
 Eatery Cafe Template 
-
+(Modified for Parth.Portfolio - Premium Indigo & Slate Theme)
 http://www.templatemo.com/tm-515-eatery
 
 */
@@ -72,7 +72,7 @@ http://www.templatemo.com/tm-515-eatery
   }
 
   a:hover, a:active, a:focus {
-    color: #ce3232;
+    color: #4f46e5; /* Electric Indigo */
     outline: none;
   }
 
@@ -83,7 +83,7 @@ http://www.templatemo.com/tm-515-eatery
 
   ::-webkit-scrollbar-thumb {
     cursor: pointer;
-    background: #000000;
+    background: #1e293b; /* Deep Slate */
   }
 
   .section-title {
@@ -103,7 +103,7 @@ http://www.templatemo.com/tm-515-eatery
   }
 
   .overlay {
-    background: rgba(0,0,0,0.5);
+    background: rgba(15, 23, 42, 0.6); /* Slate Overlay */
     position: absolute;
     top: 0;
     right: 0;
@@ -142,10 +142,10 @@ http://www.templatemo.com/tm-515-eatery
   -----------------------------------------*/
 
   .section-btn {
-    background: #ce3232;
-    border-radius: 0;
+    background: #4f46e5; /* Electric Indigo */
+    border-radius: 6px;
     border: 0;
-    color: #f9f9f9;
+    color: #ffffff;
     font-size: inherit;
     font-weight: normal;
     padding: 10px 25px;
@@ -189,7 +189,7 @@ http://www.templatemo.com/tm-515-eatery
     margin-top: -10px;
     margin-left: -10px;
     border-radius: 50%;
-    border: 1px solid #575757;
+    border: 1px solid #4f46e5; /* Electric Indigo Spinner */
     border-top-color: #ffffff;
     animation: spinner .9s linear infinite;
   }
@@ -205,7 +205,7 @@ http://www.templatemo.com/tm-515-eatery
 
 
   /*---------------------------------------
-      MENU              
+     MENU               
   -----------------------------------------*/
 
   .custom-navbar {
@@ -221,7 +221,7 @@ http://www.templatemo.com/tm-515-eatery
   }
 
   .custom-navbar .navbar-brand span {
-    color: #ce3232;
+    color: #4f46e5; /* Electric Indigo */
   }
 
   .top-nav-collapse {
@@ -243,7 +243,7 @@ http://www.templatemo.com/tm-515-eatery
   }
 
   .custom-navbar .navbar-nav.navbar-right .section-btn:hover {
-    background: #292929;
+    background: #4338ca; /* Darker Indigo Hover */
     color: #ffffff;
   }
 
@@ -270,7 +270,7 @@ http://www.templatemo.com/tm-515-eatery
 
   .custom-navbar .nav li a:hover {
     background: transparent;
-    color: #ce3232;
+    color: #4f46e5; /* Electric Indigo */
   }
 
   .custom-navbar .navbar-nav > li > a:hover,
@@ -280,7 +280,7 @@ http://www.templatemo.com/tm-515-eatery
 
   .custom-navbar .nav li.active > a {
     background-color: transparent;
-    color: #ce3232;
+    color: #4f46e5; /* Electric Indigo */
   }
 
   .custom-navbar .navbar-toggle {
@@ -387,7 +387,7 @@ http://www.templatemo.com/tm-515-eatery
     justify-content: center;
     flex-direction: column;
     text-align: left;
-    background-color: rgba(20,20,20,0.2);
+    background-color: rgba(15, 23, 42, 0.3); /* Slate tint */
     height: 100%;
     color: #fff;
     cursor: e-resize;
@@ -415,11 +415,12 @@ http://www.templatemo.com/tm-515-eatery
   }
 
   .slider .item-second .section-btn {
-    background: #292929;
+    background: #1e293b; /* Slate */
   }
 
   .slider .item-second .section-btn:hover {
     background: #ffffff;
+    color: #1e293b;
   }
 
   .slider .item-third .section-btn {
@@ -429,7 +430,7 @@ http://www.templatemo.com/tm-515-eatery
 
   .slider .item-third .section-btn:hover,
   .slider .item-third .section-btn:focus {
-    background: #ce3232;
+    background: #4f46e5; /* Electric Indigo */
     border-color: transparent;
     color: #ffffff;
   }
@@ -478,7 +479,7 @@ http://www.templatemo.com/tm-515-eatery
 
   .team-thumb .team-hover {
     position: absolute;
-    background: #1c1c1c;
+    background: rgba(30, 41, 59, 0.95); /* Deep Slate */
     width: 100%;
     height: 100%;
     top: 0;
@@ -506,7 +507,7 @@ http://www.templatemo.com/tm-515-eatery
   }
 
   .team-thumb .social-icon li a {
-    background: #292929;
+    background: #1e293b; /* Slate */
     border-radius: 100%;
     width: 50px;
     height: 50px;
@@ -514,6 +515,9 @@ http://www.templatemo.com/tm-515-eatery
     color: #d9d9d9;
     font-size: 20px;
     margin: 15px 5px 0 5px;
+  }
+  .team-thumb .social-icon li a:hover {
+    background: #4f46e5;
   }
 
   .team-thumb .team-item {
@@ -632,7 +636,7 @@ http://www.templatemo.com/tm-515-eatery
   }
 
   .menu-thumb:hover .menu-info {
-    background: rgba(0,0,0,0.8);
+    background: rgba(30, 41, 59, 0.85); /* Deep Slate hover */
   }
 
 
@@ -720,7 +724,7 @@ http://www.templatemo.com/tm-515-eatery
 
   #contact .form-control:hover,
   #contact .form-control:focus {
-    border-bottom-color: #c9c9c9;
+    border-bottom-color: #4f46e5; /* Electric Indigo */
   }
 
   #contact input {
@@ -728,8 +732,8 @@ http://www.templatemo.com/tm-515-eatery
   }
 
   #contact button#cf-submit {
-    background: #ce3232;
-    border-radius: 0;
+    background: #4f46e5; /* Electric Indigo */
+    border-radius: 6px;
     border: 0;
     color: #ffffff;
     font-weight: bold;
@@ -737,7 +741,7 @@ http://www.templatemo.com/tm-515-eatery
   }
 
   #contact button#cf-submit:hover {
-    background: #292929;
+    background: #4338ca;
     color: #ffffff;
   }
 
@@ -780,8 +784,7 @@ http://www.templatemo.com/tm-515-eatery
   }
 
   .footer-open-hour {
-    background: #ce3232;
-    background: url('../images/footer-open-hour-bg.jpg') center center no-repeat;
+    background: #1e293b; /* Deep Slate */
     background-size: cover;
     border-radius: 20px;
     margin-top: 0;
@@ -791,10 +794,11 @@ http://www.templatemo.com/tm-515-eatery
     z-index: 22;
     right: 20px;
     bottom: 20px;
+    border: 1px solid rgba(255,255,255,0.05);
   }
 
   .footer-open-hour::after {
-    background: rgba(29,29,29,0.85);
+    background: rgba(15,23,42,0.85); /* Slate tint */
     content: "";
     position: absolute;
     top: 0;
@@ -838,7 +842,7 @@ http://www.templatemo.com/tm-515-eatery
 
   .social-icon li a {
     border-radius: 100px;
-    color: #ce3232;
+    color: #4f46e5; /* Electric Indigo */
     font-size: 15px;
     width: 35px;
     height: 35px;
@@ -850,7 +854,7 @@ http://www.templatemo.com/tm-515-eatery
   }
 
   .social-icon li a:hover {
-    background: #ce3232;
+    background: #4f46e5; /* Electric Indigo */
     color: #ffffff;
   }
 
@@ -1004,4 +1008,3 @@ http://www.templatemo.com/tm-515-eatery
       top: 60%;
     }
   }
-
