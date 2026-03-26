@@ -28,7 +28,7 @@
             --nav-bg: #1e293b; /* Matches your primary color perfectly */
         }
 
-        /* --- MOBILE HORIZONTAL SCROLL FIX --- */
+        /* --- MOBILE HORIZONTAL SCROLL & FULL BLEED FIX --- */
         html, body {
             overflow-x: hidden !important;
             width: 100% !important;
@@ -37,7 +37,6 @@
             padding: 0;
         }
         
-        /* Prevent Bootstrap rows from breaking out of the screen on mobile */
         @media (max-width: 768px) {
             .row {
                 margin-right: 0 !important;
@@ -47,6 +46,39 @@
                 padding-right: 15px !important;
                 padding-left: 15px !important;
                 overflow-x: hidden !important;
+            }
+            
+            /* --- FULL BLEED EDGE-TO-EDGE PROJECT IMAGES --- */
+            /* 1. Remove padding from the portfolio section container */
+            #menu .container {
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+                max-width: 100% !important;
+            }
+            
+            /* 2. Protect the Title text from hitting the screen edge */
+            #menu .section-title {
+                padding-left: 15px !important;
+                padding-right: 15px !important;
+                margin-bottom: 10px !important;
+            }
+            
+            /* 3. Strip all spacing from the columns holding the projects */
+            #menu .col-sm-6, #menu .col-md-4 {
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+            
+            /* 4. Force images to full width, zero margin (touching), and sharp edges */
+            .menu-thumb {
+                width: 100vw !important; 
+                margin: 0 !important; 
+                display: block;
+                border-radius: 0 !important;
+            }
+            
+            .menu-thumb img {
+                border-radius: 0 !important;
             }
         }
 
@@ -58,7 +90,7 @@
             background-position: center;
         }
         .item-second {
-            background-image: url('https://images.unsplash.com/photo-1518932945647-7a3c96922f18?auto=format&fit=crop&w=1920&q=80') !important;
+            background-image: url('images/hero2.png') !important;
             background-size: cover;
             background-position: center;
         }
