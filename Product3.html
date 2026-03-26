@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Coming Soon - Parth.Portfolio</title>
+    
+    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* --- AWESOME COMING SOON STYLES (SLATE THEME) --- */
+        
+        .awesome-wrapper {
+            position: relative;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            padding: 20px;
+        }
+
+        /* Ambient Glowing Background Orbs */
+        .bg-shapes {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            z-index: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        .shape {
+            position: absolute;
+            filter: blur(60px);
+            opacity: 0.3;
+            border-radius: 50%;
+            animation: float 8s infinite alternate ease-in-out;
+        }
+        .shape1 { 
+            background: #1e293b; /* Deep Slate Accent */
+            width: 350px; height: 350px; 
+            top: -100px; left: -100px; 
+            transition: background 0.3s ease;
+        }
+        .shape2 { 
+            background: #64748b; /* Lighter Slate Accent */
+            width: 250px; height: 250px; 
+            bottom: -50px; right: 10%; 
+            animation-delay: -4s; 
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0) scale(1); }
+            100% { transform: translateY(40px) scale(1.1); }
+        }
+
+        /* Glassmorphism Card */
+        .glass-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            border-radius: 16px;
+            padding: 50px 40px;
+            text-align: center;
+            max-width: 550px;
+            width: 100%;
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+        
+        /* Dark mode specific glass effect */
+        body.dark-mode .glass-card {
+            background: rgba(30, 41, 59, 0.6); /* Slate tint */
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        /* Pulsing Tech Icon */
+        .pulsing-icon {
+            font-size: 4.5rem;
+            color: #1e293b; /* Deep Slate */
+            margin-bottom: 20px;
+            animation: pulseGlow 2s infinite;
+            transition: color 0.3s ease;
+        }
+
+        /* Light Mode Pulse */
+        @keyframes pulseGlow {
+            0% { transform: scale(1); text-shadow: 0 0 0 rgba(30, 41, 59, 0.7); }
+            50% { transform: scale(1.1); text-shadow: 0 0 25px rgba(30, 41, 59, 0.5); }
+            100% { transform: scale(1); text-shadow: 0 0 0 rgba(30, 41, 59, 0); }
+        }
+
+        /* Dark Mode Pulse */
+        @keyframes pulseGlowDark {
+            0% { transform: scale(1); text-shadow: 0 0 0 rgba(148, 163, 184, 0.7); }
+            50% { transform: scale(1.1); text-shadow: 0 0 25px rgba(148, 163, 184, 0.6); }
+            100% { transform: scale(1); text-shadow: 0 0 0 rgba(148, 163, 184, 0); }
+        }
+
+        .glass-card h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            color: var(--text-color);
+        }
+
+        .glass-card p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            margin-bottom: 30px;
+        }
+
+        /* Animated Progress Bar */
+        .progress-box {
+            margin: 0 0 35px 0;
+            text-align: left;
+        }
+        .progress-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .progress-bar-bg {
+            background: var(--border-color);
+            height: 8px;
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+        }
+        .progress-bar-fill {
+            background: #1e293b; /* Deep Slate */
+            height: 100%;
+            width: 0%;
+            border-radius: 4px;
+            animation: loadProgress 2.5s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+            position: relative;
+            transition: background 0.3s ease;
+        }
+        
+        /* Shimmer effect inside the loading bar */
+        .progress-bar-fill::after {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: shimmer 1.5s infinite linear;
+        }
+
+        @keyframes loadProgress {
+            0% { width: 0%; }
+            100% { width: 85%; } 
+        }
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        /* Upgraded Button */
+        .btn-outline-awesome {
+            background-color: transparent;
+            color: #1e293b;
+            padding: 12px 30px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border: 2px solid #1e293b;
+        }
+        .btn-outline-awesome:hover {
+            background-color: #1e293b;
+            color: white;
+            text-decoration: none;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(30, 41, 59, 0.3);
+        }
+
+        /* --- Dark Mode Enhancements for Coming Soon Page --- */
+        body.dark-mode .shape1 { background: #94a3b8; /* Silver Slate */ }
+        body.dark-mode .pulsing-icon { 
+            color: #94a3b8; 
+            animation: pulseGlowDark 2s infinite; 
+        }
+        body.dark-mode .progress-bar-fill { background: #94a3b8; }
+        body.dark-mode .btn-outline-awesome { 
+            color: #94a3b8; 
+            border-color: #94a3b8; 
+        }
+        body.dark-mode .btn-outline-awesome:hover {
+            background-color: #94a3b8;
+            color: #0f172a; /* Dark text for contrast */
+            box-shadow: 0 6px 20px rgba(148, 163, 184, 0.3);
+        }
+        
+        /* Mobile tweaks */
+        @media (max-width: 768px) {
+            .glass-card {
+                padding: 40px 20px;
+                border-radius: 12px;
+                margin: 0 15px;
+            }
+            .glass-card h1 {
+                font-size: 1.8rem;
+            }
+        }
+        
+        /* Prevent horizontal scroll */
+        html, body { overflow-x: hidden; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo" style="text-decoration: none; color: inherit;">Parth.Portfolio</a>
+        <div class="nav-links">
+            <a href="index.html#story">Projects</a>
+            <a href="index.html#comments">Community</a>
+            <button id="dark-mode-toggle" class="btn-icon" title="Toggle Dark Mode">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div class="awesome-wrapper">
+        
+        <div class="bg-shapes">
+            <div class="shape shape1"></div>
+            <div class="shape shape2"></div>
+        </div>
+
+        <div class="glass-card">
+            <i class="fas fa-microchip pulsing-icon"></i>
+            <h1>System Compiling...</h1>
+            <p>I am currently soldering the final wires and documenting this project. Code, circuits, and logic will be live soon!</p>
+            
+            <div class="progress-box">
+                <div class="progress-labels">
+                    <span>Documentation Status</span>
+                    <span>85%</span>
+                </div>
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill"></div>
+                </div>
+            </div>
+
+            <a href="index.html" class="btn-outline-awesome"><i class="fas fa-arrow-left"></i> Return to Main Hub</a>
+        </div>
+    </div>
+
+    <script src="script1.js"></script>
+    
+</body>
+</html>
