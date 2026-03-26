@@ -20,32 +20,86 @@
      <link rel="stylesheet" href="css/templatemo-style.css">
 
      <style>
+        /* --- Premium Tech Theme Variables --- */
+        :root {
+            --primary-color: #1e293b; /* Deep Slate Theme */
+            --primary-hover: #0f172a; /* Deeper Slate for Hover */
+            --dark-primary: #94a3b8; /* Silver-slate for dark mode visibility */
+            --nav-bg: #1e293b; /* Matches your primary color perfectly */
+        }
+
+        /* --- Transparent at the top, Solid on Scroll --- */
+        .custom-navbar {
+            background-color: transparent !important; /* Invisible over the hero image */
+            padding: 15px 0;
+            border-bottom: none !important;
+            transition: background-color 0.4s ease-in-out;
+        }
+        
+        /* This class is added by your custom.js when you scroll down */
+        .custom-navbar.top-nav-collapse {
+            background-color: var(--nav-bg) !important; /* Solid Slate color */
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .custom-navbar .navbar-brand { color: #ffffff !important; }
+        .custom-navbar .navbar-brand span { color: var(--primary-color) !important; }
+        .custom-navbar .navbar-nav li a { color: #f8fafc !important; }
+        .custom-navbar .navbar-nav li a:hover { color: var(--dark-primary) !important; }
+        
         /* Dark Mode Toggle Button */
         .dark-mode-btn {
             background: none;
             border: none;
-            color: #777; /* Default menu color */
+            color: #f8fafc !important; 
             font-size: 18px;
             padding: 15px;
             cursor: pointer;
             transition: color 0.3s;
         }
-        .dark-mode-btn:hover { color: #ce3232; }
+        .dark-mode-btn:hover { color: var(--dark-primary) !important; }
 
-        /* Dark Mode Overrides */
-        body.dark-mode { background-color: #121212; color: #e0e0e0; }
-        body.dark-mode .navbar-default { background-color: #1f1f1f; border-bottom: 1px solid #333; }
-        body.dark-mode .navbar-default .navbar-brand { color: #fff; }
-        body.dark-mode .navbar-default .navbar-nav li a { color: #ccc; }
-        body.dark-mode h1, body.dark-mode h2, body.dark-mode h3, body.dark-mode h4, body.dark-mode h5, body.dark-mode h6 { color: #fff !important; }
-        body.dark-mode p { color: #aaa; }
-        body.dark-mode .about-info, body.dark-mode .team-thumb, body.dark-mode .menu-thumb, body.dark-mode .footer-info {
-            background-color: #1e1e1e; /* Dark cards */
-            border-color: #333;
+        /* --- Force Buttons to Match Product Page Styles --- */
+        .section-btn, 
+        #contact-form button#cf-submit { 
+            background-color: var(--primary-color) !important; 
+            color: #ffffff !important;
+            border: none !important;
+            border-radius: 6px !important;
+            box-shadow: 0 4px 6px -1px rgba(30, 41, 59, 0.2) !important;
+            transition: all 0.3s ease !important;
         }
-        body.dark-mode .team-info h3, body.dark-mode .menu-item h3 { color: #ce3232 !important; } /* Keep accents red */
+        .section-btn:hover, 
+        #contact-form button#cf-submit:hover { 
+            background-color: var(--primary-hover) !important; 
+            transform: translateY(-2px) !important;
+            box-shadow: 0 6px 15px rgba(30, 41, 59, 0.4) !important;
+        }
+        
+        .menu-item h3 { color: var(--primary-color); }
+        .section-title h2 { color: var(--primary-color); }
+
+        /* --- Dark Mode Overrides (Matched to Slate Theme) --- */
+        body.dark-mode { background-color: #0f172a; color: #f8fafc; }
+        
+        /* Transparent at top in Dark Mode */
+        body.dark-mode .custom-navbar { background-color: transparent !important; }
+        
+        /* Solid slate on scroll in Dark Mode */
+        body.dark-mode .custom-navbar.top-nav-collapse { 
+            background-color: #0f172a !important; 
+            border-bottom: 1px solid #334155 !important; 
+        }
+        
+        body.dark-mode h1, body.dark-mode h2, body.dark-mode h3, body.dark-mode h4, body.dark-mode h5, body.dark-mode h6 { color: #fff !important; }
+        body.dark-mode p { color: #94a3b8; }
+        body.dark-mode .about-info, body.dark-mode .team-thumb, body.dark-mode .menu-thumb, body.dark-mode .footer-info {
+            background-color: #1e293b; /* Sleek dark cards */
+            border-color: #334155;
+        }
+        body.dark-mode .team-info h3, body.dark-mode .menu-item h3, body.dark-mode .section-title h2 { color: var(--dark-primary) !important; } /* Silver accents */
         body.dark-mode .footer-info { background: transparent; }
-        body.dark-mode footer { background-color: #000; border-top: 1px solid #333; }
+        body.dark-mode footer { background-color: #0b1120; border-top: 1px solid #334155; }
 
         /* FIX: Force uniform size for all project images so the grid doesn't break */
         .menu-thumb img {
@@ -155,7 +209,7 @@
                          <div class="about-info">
                               <div class="section-title wow fadeInUp" data-wow-delay="0.1s">
                                    <h4>Who am I?</h4>
-                                   <h2>Engineering with Passion & Precision</h2>
+                                   <h2>Parth Pahanpate</h2>
                               </div>
 
                               <div class="wow fadeInUp" data-wow-delay="0.1s">
@@ -167,7 +221,7 @@
 
                     <div class="col-md-6 col-sm-12">
                          <div class="wow fadeInUp about-image" data-wow-delay="0.2s">
-                              <img src="images/about-image.jpg" class="img-responsive" alt="Parth Pahanpate">
+                              <img src="images/Highly detailed microchip.jpeg" class="img-responsive" alt="Parth Pahanpate">
                          </div>
                     </div>
                     
@@ -207,16 +261,16 @@
 
                     <div class="col-md-4 col-sm-6">
                          <div class="menu-thumb">
-                              <a href="images/menu-image2.jpg" class="image-popup" title="Coming Soon">
-                                   <img src="images/menu-image2.jpg" class="img-responsive" alt="">
+                              <a href="Product2.html" target="_blank" title="view project documentation">
+                                   <img src="images/coming soon.jpeg" class="img-responsive" alt="">
 
                                    <div class="menu-info">
                                         <div class="menu-item">
-                                             <h3>Smart Home Automation</h3>
-                                             <p>ESP32 / WiFi / Web App</p>
+                                             <h3>....</h3>
+                                             <p>....</p>
                                         </div>
                                         <div class="menu-price">
-                                             <span>Soon</span>
+                                             <span>View</span>
                                         </div>
                                    </div>
                               </a>
@@ -225,16 +279,16 @@
 
                     <div class="col-md-4 col-sm-6">
                          <div class="menu-thumb">
-                              <a href="images/menu-image3.jpg" class="image-popup" title="Coming Soon">
-                                   <img src="images/menu-image3.jpg" class="img-responsive" alt="">
+                              <a href="Product3.html" target="_blank" title="view project documentation">
+                                   <img src="images/coming soon.jpeg" class="img-responsive" alt="">
 
                                    <div class="menu-info">
                                         <div class="menu-item">
-                                             <h3>Line Follower Robot</h3>
-                                             <p>Robotics / Sensors</p>
+                                             <h3>....</h3>
+                                             <p>....</p>
                                         </div>
                                         <div class="menu-price">
-                                             <span>Soon</span>
+                                             <span>View</span>
                                         </div>
                                    </div>
                               </a>
@@ -243,16 +297,16 @@
 
                     <div class="col-md-4 col-sm-6">
                          <div class="menu-thumb">
-                              <a href="images/menu-image4.jpg" class="image-popup" title="Coming Soon">
-                                   <img src="images/menu-image4.jpg" class="img-responsive" alt="">
+                              <a href="Product4.html" target="_blank" title="view project documentation">
+                                   <img src="images/coming soon.jpeg" class="img-responsive" alt="">
 
                                    <div class="menu-info">
                                         <div class="menu-item">
-                                             <h3>Solar Power Logger</h3>
-                                             <p>Green Energy / Data</p>
+                                             <h3>....</h3>
+                                             <p>....</p>
                                         </div>
                                         <div class="menu-price">
-                                             <span>Soon</span>
+                                             <span>View</span>
                                         </div>
                                    </div>
                               </a>
@@ -261,16 +315,16 @@
 
                     <div class="col-md-4 col-sm-6">
                          <div class="menu-thumb">
-                              <a href="images/menu-image5.jpg" class="image-popup" title="Coming Soon">
-                                   <img src="images/menu-image5.jpg" class="img-responsive" alt="">
+                              <a href="Product5.html" target="_blank" title="view project documentation">
+                                   <img src="images/coming soon.jpeg" class="img-responsive" alt="">
 
                                    <div class="menu-info">
                                         <div class="menu-item">
-                                             <h3>Weather Station</h3>
-                                             <p>Sensors / Display</p>
+                                             <h3>....</h3>
+                                             <p>....</p>
                                         </div>
                                         <div class="menu-price">
-                                             <span>Soon</span>
+                                             <span>view</span>
                                         </div>
                                    </div>
                               </a>
@@ -279,16 +333,16 @@
 
                     <div class="col-md-4 col-sm-6">
                          <div class="menu-thumb">
-                              <a href="images/menu-image6.jpg" class="image-popup" title="Coming Soon">
-                                   <img src="images/menu-image6.jpg" class="img-responsive" alt="">
+                              <a href="Product6.html" target="_blank" title="view project documentation">
+                                   <img src="images/coming soon.jpeg" class="img-responsive" alt="">
 
                                    <div class="menu-info">
                                         <div class="menu-item">
-                                             <h3>PCB Design Project</h3>
-                                             <p>Eagle / Fabrication</p>
+                                             <h3>....</h3>
+                                             <p>....</p>
                                         </div>
                                         <div class="menu-price">
-                                             <span>Soon</span>
+                                             <span>View</span>
                                         </div>
                                    </div>
                               </a>
@@ -317,7 +371,7 @@
                                    <p>Pursuing comprehensive studies in circuit analysis, power systems, and control theory. Active member of the Robotics Club.</p>
                                         <div class="tst-author">
                                              <h4>Bachelor of Technology</h4>
-                                             <span>Electrical Engineering (2022 - 2026)</span>
+                                             <span>Electrical Engineering (Graduation Year - 2027)</span>
                                         </div>
                               </div>
 

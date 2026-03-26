@@ -1,28 +1,28 @@
-/* --- 1. CSS Variables (Theming) --- */
+/* --- 1. CSS Variables (Premium Slate Theme) --- */
 :root {
-    --bg-color: #f6f8fa;
+    --bg-color: #f8fafc; /* Clean, cool light gray background */
     --card-bg: #ffffff;
-    --text-color: #24292e;
-    --text-muted: #586069;
-    --accent-color: #00979d; /* TEAL */
-    --border-color: #e1e4e8;
-    --code-bg: #f5f2f0; /* Light Gray for Light Theme */
-    --nav-bg: #2e0000;
+    --text-color: #0f172a; /* Deep slate for crisp, readable text */
+    --text-muted: #64748b;
+    --accent-color: #1e293b; /* Deep Slate - Your brand color! */
+    --border-color: #e2e8f0;
+    --code-bg: #f1f5f9;
+    --nav-bg: #1e293b; /* Sleek, dark modern navbar */
     --nav-text: #ffffff;
-    --shadow: 0 4px 12px rgba(0,0,0,0.08);
+    --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1); /* Premium soft shadow */
 }
 
 /* Dark Mode Variables */
 body.dark-mode {
-    --bg-color: #0d1117;
-    --card-bg: #161b22;
-    --text-color: #c9d1d9;
-    --text-muted: #8b949e;
-    --accent-color: #2dba4e;
-    --border-color: #30363d;
-    --code-bg: #2d2d2d; /* Dark Gray for Dark Theme */
-    --nav-bg: #161b22;
-    --shadow: 0 4px 12px rgba(0,0,0,0.5);
+    --bg-color: #0f172a; /* Very deep tech slate background */
+    --card-bg: #1e293b; /* Slightly lighter slate for content cards */
+    --text-color: #f8fafc;
+    --text-muted: #94a3b8;
+    --accent-color: #94a3b8; /* Silver slate for dark mode visibility */
+    --border-color: #334155;
+    --code-bg: #0b1120;
+    --nav-bg: #0f172a; /* Blends beautifully into the dark background */
+    --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.6);
 }
 
 /* --- 2. Global Resets --- */
@@ -70,7 +70,7 @@ a:hover { text-decoration: underline; }
 .project-header h1 { font-size: 2.2rem; margin-bottom: 15px; line-height: 1.2; }
 .meta-info { color: var(--text-muted); margin-bottom: 15px; font-size: 0.9rem; }
 .tags .tag { 
-    background: rgba(0, 151, 157, 0.1); 
+    background: rgba(30, 41, 59, 0.1); 
     color: var(--accent-color); 
     padding: 4px 10px; 
     border-radius: 15px; 
@@ -78,6 +78,11 @@ a:hover { text-decoration: underline; }
     margin-right: 5px; 
     display: inline-block; /* Mobile fix */
     margin-bottom: 5px;
+    border: 1px solid rgba(30, 41, 59, 0.2);
+}
+body.dark-mode .tags .tag {
+    background: rgba(148, 163, 184, 0.1);
+    border-color: rgba(148, 163, 184, 0.3);
 }
 
 /* GRID SYSTEM */
@@ -178,26 +183,49 @@ pre { margin: 0 !important; border-radius: 0 !important; }
 .comment-avatar { width: 40px; height: 40px; background: #ddd; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #555; flex-shrink: 0; }
 .comment-date { font-size: 0.8rem; color: var(--text-muted); font-weight: normal; margin-left: 10px; }
 .comment-input-area textarea { width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 5px; border: 1px solid var(--border-color); background: var(--bg-color); color: var(--text-color); }
-.btn-primary { background: var(--accent-color); color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; }
+
+/* Premium buttons for comments */
+.btn-primary { 
+    background: var(--accent-color); 
+    color: #fff; 
+    border: none; 
+    padding: 10px 20px; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    transition: all 0.3s ease;
+}
+.btn-primary:hover {
+    background: #0f172a;
+}
+body.dark-mode .btn-primary { color: #0f172a; }
+body.dark-mode .btn-primary:hover { background: #cbd5e1; }
+
 .btn-secondary { 
     display: block; 
     width: 100%; 
     padding: 10px; 
-    background: var(--bg-color); 
-    border: 1px solid var(--border-color); 
-    color: var(--text-color); 
+    background: transparent; 
+    border: 2px solid var(--accent-color); 
+    color: var(--accent-color); 
     border-radius: 5px; 
     margin-bottom: 20px; 
     cursor: pointer; 
+    transition: all 0.3s ease;
+    font-weight: bold;
 }
-.btn-secondary:hover { background: var(--border-color); }
+.btn-secondary:hover { 
+    background: var(--accent-color); 
+    color: #fff;
+}
+body.dark-mode .btn-secondary:hover { color: #0f172a; }
 
 /* New Comment Animation */
 @keyframes slideIn {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
 }
-.new-comment { animation: slideIn 0.5s ease-out; background-color: rgba(0, 151, 157, 0.05); border-radius: 5px; padding: 10px; }
+.new-comment { animation: slideIn 0.5s ease-out; background-color: rgba(30, 41, 59, 0.05); border-radius: 5px; padding: 10px; }
+body.dark-mode .new-comment { background-color: rgba(148, 163, 184, 0.05); }
 
 /* Back to Top Button */
 #back-to-top {
@@ -209,7 +237,7 @@ pre { margin: 0 !important; border-radius: 0 !important; }
     border: none; 
     outline: none; 
     background-color: var(--accent-color); 
-    color: white; 
+    color: #fff; 
     cursor: pointer; 
     padding: 15px; 
     border-radius: 50%; 
@@ -217,7 +245,12 @@ pre { margin: 0 !important; border-radius: 0 !important; }
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     transition: background-color 0.3s, transform 0.3s;
 }
-#back-to-top:hover { background-color: #007c81; transform: translateY(-3px); }
+#back-to-top:hover { 
+    background-color: #0f172a; 
+    transform: translateY(-3px); 
+}
+body.dark-mode #back-to-top { color: #0f172a; }
+body.dark-mode #back-to-top:hover { background-color: #cbd5e1; }
 
 /* Video & Images */
 .media-section { margin-bottom: 20px; }
