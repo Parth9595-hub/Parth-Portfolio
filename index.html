@@ -28,6 +28,28 @@
             --nav-bg: #1e293b; /* Matches your primary color perfectly */
         }
 
+        /* --- MOBILE HORIZONTAL SCROLL FIX --- */
+        html, body {
+            overflow-x: hidden !important;
+            width: 100% !important;
+            max-width: 100vw !important;
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Prevent Bootstrap rows from breaking out of the screen on mobile */
+        @media (max-width: 768px) {
+            .row {
+                margin-right: 0 !important;
+                margin-left: 0 !important;
+            }
+            .container {
+                padding-right: 15px !important;
+                padding-left: 15px !important;
+                overflow-x: hidden !important;
+            }
+        }
+
         /* --- HERO SECTION IMAGES --- */
         /* Change the URLs below to the paths of your own images (e.g., 'images/my-hero1.jpg') */
         .item-first {
@@ -36,7 +58,7 @@
             background-position: center;
         }
         .item-second {
-            background-image: url('images/hero2.png') !important;
+            background-image: url('https://images.unsplash.com/photo-1518932945647-7a3c96922f18?auto=format&fit=crop&w=1920&q=80') !important;
             background-size: cover;
             background-position: center;
         }
@@ -64,6 +86,18 @@
         .custom-navbar .navbar-brand span { color: var(--primary-color) !important; }
         .custom-navbar .navbar-nav li a { color: #f8fafc !important; }
         .custom-navbar .navbar-nav li a:hover { color: var(--dark-primary) !important; }
+        
+        /* --- Mobile Menu Icon Fix --- */
+        .custom-navbar .navbar-toggle .icon-bar {
+            background-color: #ffffff !important; /* Forces the hamburger lines to be white */
+        }
+        .custom-navbar .navbar-toggle {
+            border-color: transparent !important;
+        }
+        .custom-navbar .navbar-toggle:hover, 
+        .custom-navbar .navbar-toggle:focus {
+            background-color: rgba(255,255,255,0.1) !important; /* Slight highlight when tapped */
+        }
         
         /* Dark Mode Toggle Button */
         .dark-mode-btn {
@@ -261,7 +295,7 @@
 
                     <div class="col-md-4 col-sm-6">
                          <div class="menu-thumb">
-                              <a href="Product.html" target="_blank" title="View Project Documentation">
+                              <a href="Product.html" title="View Project Documentation">
                                    <img src="images/energymeter1.png" class="img-responsive" alt="IoT Smart Energy Meter">
 
                                    <div class="menu-info">
@@ -279,7 +313,7 @@
 
                     <div class="col-md-4 col-sm-6">
                          <div class="menu-thumb">
-                              <a href="Product2.html" target="_blank" title="view project documentation">
+                              <a href="Product2.html" title="View Project Documentation">
                                    <img src="images/coming soon.jpeg" class="img-responsive" alt="">
 
                                    <div class="menu-info">
@@ -297,7 +331,7 @@
 
                     <div class="col-md-4 col-sm-6">
                          <div class="menu-thumb">
-                              <a href="Product3.html" target="_blank" title="view project documentation">
+                              <a href="Product3.html" title="View Project Documentation">
                                    <img src="images/coming soon.jpeg" class="img-responsive" alt="">
 
                                    <div class="menu-info">
@@ -315,7 +349,7 @@
 
                     <div class="col-md-4 col-sm-6">
                          <div class="menu-thumb">
-                              <a href="Product4.html" target="_blank" title="view project documentation">
+                              <a href="Product4.html" title="View Project Documentation">
                                    <img src="images/coming soon.jpeg" class="img-responsive" alt="">
 
                                    <div class="menu-info">
@@ -333,7 +367,7 @@
 
                     <div class="col-md-4 col-sm-6">
                          <div class="menu-thumb">
-                              <a href="Product5.html" target="_blank" title="view project documentation">
+                              <a href="Product5.html" title="View Project Documentation">
                                    <img src="images/coming soon.jpeg" class="img-responsive" alt="">
 
                                    <div class="menu-info">
@@ -351,7 +385,7 @@
 
                     <div class="col-md-4 col-sm-6">
                          <div class="menu-thumb">
-                              <a href="Product6.html" target="_blank" title="view project documentation">
+                              <a href="Product6.html" title="View Project Documentation">
                                    <img src="images/coming soon.jpeg" class="img-responsive" alt="">
 
                                    <div class="menu-info">
@@ -424,7 +458,7 @@
 
                          <div class="section-title wow fadeInUp" data-wow-delay="0s">
                               <h2>Contact Me</h2>
-                              <p>Contact me for any quries you have and I'll get back to you via email soon .</p>
+                              <p>Contact me for any queries you have and I'll get back to you via email soon.</p>
                          </div>
 
                          <form action="https://formspree.io/f/mlgppjpw" method="post" class="wow fadeInUp" id="contact-form" role="form" data-wow-delay="0.2s">
