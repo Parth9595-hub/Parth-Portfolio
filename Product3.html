@@ -3,217 +3,174 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <title>Coming Soon - Parth.Portfolio</title>
-    
+    <title>OPTIMAL DESIGN OF PROPOTIONAL RESONANT CONTROLLER USING 11 LEVEL MULTILEVEL CASCADED H-BRIDGE INVERTER</title>
     <link rel="stylesheet" href="style1.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link id="prism-css" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
     
     <style>
-        /* --- AWESOME COMING SOON STYLES (SLATE THEME) --- */
-        
-        .awesome-wrapper {
+        /* --- Theme Variable Overrides (Deep Slate Theme) --- */
+        :root {
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-color: #0f172a;
+            --text-muted: #64748b;
+            --accent-color: #1e293b; /* Deep Slate */
+            --border-color: #e2e8f0;
+            --code-bg: #f1f5f9;
+            --nav-bg: #1e293b;
+            --nav-text: #ffffff;
+        }
+
+        body.dark-mode {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-color: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-color: #94a3b8; /* Silver Slate for Dark Mode */
+            --border-color: #334155;
+            --code-bg: #0b1120;
+            --nav-bg: #0f172a;
+        }
+
+        /* Tag Styling */
+        .tags .tag {
+            background: rgba(30, 41, 59, 0.1);
+            color: var(--accent-color);
+            border: 1px solid rgba(30, 41, 59, 0.2);
+        }
+        body.dark-mode .tags .tag {
+            background: rgba(148, 163, 184, 0.1);
+            border-color: rgba(148, 163, 184, 0.3);
+        }
+
+        /* Styles for the expandable code block */
+        .code-container {
             position: relative;
-            min-height: 85vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            max-height: 400px; 
             overflow: hidden;
-            padding: 20px;
+            transition: max-height 0.5s ease;
         }
-
-        /* Ambient Glowing Background Orbs */
-        .bg-shapes {
+        .code-container.expanded {
+            max-height: none;
+        }
+        .show-more-overlay {
             position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            z-index: 0;
-            overflow: hidden;
-            pointer-events: none;
-        }
-        .shape {
-            position: absolute;
-            filter: blur(60px);
-            opacity: 0.3;
-            border-radius: 50%;
-            animation: float 8s infinite alternate ease-in-out;
-        }
-        .shape1 { 
-            background: #1e293b; /* Deep Slate Accent */
-            width: 350px; height: 350px; 
-            top: -100px; left: -100px; 
-            transition: background 0.3s ease;
-        }
-        .shape2 { 
-            background: #64748b; /* Lighter Slate Accent */
-            width: 250px; height: 250px; 
-            bottom: -50px; right: 10%; 
-            animation-delay: -4s; 
-        }
-
-        @keyframes float {
-            0% { transform: translateY(0) scale(1); }
-            100% { transform: translateY(40px) scale(1.1); }
-        }
-
-        /* Glassmorphism Card */
-        .glass-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-            border-radius: 16px;
-            padding: 50px 40px;
-            text-align: center;
-            max-width: 550px;
+            bottom: 0;
+            left: 0;
             width: 100%;
-            position: relative;
-            z-index: 1;
-            transition: all 0.3s ease;
-        }
-        
-        /* Dark mode specific glass effect */
-        body.dark-mode .glass-card {
-            background: rgba(30, 41, 59, 0.6); /* Slate tint */
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
-        /* Pulsing Tech Icon */
-        .pulsing-icon {
-            font-size: 4.5rem;
-            color: #1e293b; /* Deep Slate */
-            margin-bottom: 20px;
-            animation: pulseGlow 2s infinite;
-            transition: color 0.3s ease;
-        }
-
-        /* Light Mode Pulse */
-        @keyframes pulseGlow {
-            0% { transform: scale(1); text-shadow: 0 0 0 rgba(30, 41, 59, 0.7); }
-            50% { transform: scale(1.1); text-shadow: 0 0 25px rgba(30, 41, 59, 0.5); }
-            100% { transform: scale(1); text-shadow: 0 0 0 rgba(30, 41, 59, 0); }
-        }
-
-        /* Dark Mode Pulse */
-        @keyframes pulseGlowDark {
-            0% { transform: scale(1); text-shadow: 0 0 0 rgba(148, 163, 184, 0.7); }
-            50% { transform: scale(1.1); text-shadow: 0 0 25px rgba(148, 163, 184, 0.6); }
-            100% { transform: scale(1); text-shadow: 0 0 0 rgba(148, 163, 184, 0); }
-        }
-
-        .glass-card h1 {
-            font-size: 2.2rem;
-            margin-bottom: 10px;
-            color: var(--text-color);
-        }
-
-        .glass-card p {
-            color: var(--text-muted);
-            font-size: 1.05rem;
-            margin-bottom: 30px;
-        }
-
-        /* Animated Progress Bar */
-        .progress-box {
-            margin: 0 0 35px 0;
-            text-align: left;
-        }
-        .progress-labels {
+            height: 100px;
+            background: linear-gradient(transparent, rgba(255,255,255,0.9));
             display: flex;
-            justify-content: space-between;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            margin-bottom: 8px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            justify-content: center;
+            align-items: flex-end;
+            padding-bottom: 20px;
         }
-        .progress-bar-bg {
-            background: var(--border-color);
-            height: 8px;
-            border-radius: 4px;
-            overflow: hidden;
-            position: relative;
+        .code-container.expanded .show-more-overlay {
+            position: static;
+            background: none;
+            height: auto;
+            padding-top: 10px;
         }
-        .progress-bar-fill {
-            background: #1e293b; /* Deep Slate */
-            height: 100%;
-            width: 0%;
-            border-radius: 4px;
-            animation: loadProgress 2.5s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
-            position: relative;
-            transition: background 0.3s ease;
+
+        /* --- PREMIUM BUTTON STYLES (Slate Theme) --- */
+        .btn-show-more, 
+        .btn-primary {
+            padding: 10px 20px !important;
+            background-color: #1e293b !important; /* Deep Slate */
+            color: white !important;
+            border: none !important;
+            border-radius: 6px !important;
+            cursor: pointer !important;
+            font-weight: bold !important;
+            transition: all 0.3s ease !important;
+            box-shadow: 0 4px 6px -1px rgba(30, 41, 59, 0.2) !important;
+        }
+        .btn-show-more:hover, 
+        .btn-primary:hover {
+            background-color: #0f172a !important; /* Darker Slate */
+            transform: translateY(-2px) !important;
+            box-shadow: 0 6px 15px rgba(30, 41, 59, 0.4) !important;
+        }
+
+        .btn-secondary {
+            background-color: transparent !important;
+            color: #1e293b !important;
+            border: 2px solid #1e293b !important;
+            border-radius: 6px !important;
+            transition: all 0.3s ease !important;
+            font-weight: bold !important;
+        }
+        .btn-secondary:hover {
+            background-color: #1e293b !important;
+            color: white !important;
+            transform: translateY(-2px) !important;
+            box-shadow: 0 6px 15px rgba(30, 41, 59, 0.3) !important;
+        }
+
+        /* Dark mode adjustment for overlay */
+        body.dark-mode .show-more-overlay {
+            background: linear-gradient(transparent, rgba(15, 23, 42, 0.9));
+        }
+
+        /* --- MOBILE OPTIMIZATION ADDITIONS & ZOOM FIX --- */
+        html, body {
+            overflow-x: hidden !important;
+            max-width: 100vw !important;
+            width: 100% !important;
+            margin: 0;
+            padding: 0;
         }
         
-        /* Shimmer effect inside the loading bar */
-        .progress-bar-fill::after {
-            content: "";
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            animation: shimmer 1.5s infinite linear;
+        * {
+            box-sizing: border-box !important;
         }
 
-        @keyframes loadProgress {
-            0% { width: 0%; }
-            100% { width: 85%; } 
-        }
-        @keyframes shimmer {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
+        p, a, li, span, h1, h2, h3, h4 {
+            overflow-wrap: break-word;
+            word-wrap: break-word;
         }
 
-        /* Upgraded Button */
-        .btn-outline-awesome {
-            background-color: transparent;
-            color: #1e293b;
-            padding: 12px 30px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: bold;
-            display: inline-block;
-            transition: all 0.3s ease;
-            border: 2px solid #1e293b;
-        }
-        .btn-outline-awesome:hover {
-            background-color: #1e293b;
-            color: white;
-            text-decoration: none;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(30, 41, 59, 0.3);
-        }
-
-        /* --- Dark Mode Enhancements for Coming Soon Page --- */
-        body.dark-mode .shape1 { background: #94a3b8; /* Silver Slate */ }
-        body.dark-mode .pulsing-icon { 
-            color: #94a3b8; 
-            animation: pulseGlowDark 2s infinite; 
-        }
-        body.dark-mode .progress-bar-fill { background: #94a3b8; }
-        body.dark-mode .btn-outline-awesome { 
-            color: #94a3b8; 
-            border-color: #94a3b8; 
-        }
-        body.dark-mode .btn-outline-awesome:hover {
-            background-color: #94a3b8;
-            color: #0f172a; /* Dark text for contrast */
-            box-shadow: 0 6px 20px rgba(148, 163, 184, 0.3);
-        }
-        
-        /* Mobile tweaks */
         @media (max-width: 768px) {
-            .glass-card {
-                padding: 40px 20px;
-                border-radius: 12px;
-                margin: 0 15px;
+            .content-wrapper {
+                display: flex !important;
+                flex-direction: column !important;
             }
-            .glass-card h1 {
-                font-size: 1.8rem;
+            
+            .navbar {
+                flex-direction: column !important;
+                text-align: center;
+                gap: 10px;
+                padding: 15px;
+            }
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+            
+            .project-header h1 {
+                font-size: 1.6rem !important;
+            }
+            
+            .mySlides img {
+                height: 300px !important; 
+            }
+            
+            pre[class*="language-"], code[class*="language-"], .code-block {
+                max-width: 100vw !important;
+                overflow-x: auto !important;
+            }
+            
+            .sidebar-wrapper, .main-content {
+                width: 100% !important;
+                max-width: 100vw !important;
+            }
+            
+            .container {
+                padding: 0 10px !important;
             }
         }
-        
-        /* Prevent horizontal scroll */
-        html, body { overflow-x: hidden; }
     </style>
 </head>
 <body>
@@ -221,41 +178,600 @@
     <nav class="navbar">
         <a href="index.html" class="logo" style="text-decoration: none; color: inherit;">Parth.Portfolio</a>
         <div class="nav-links">
-            <a href="index.html#story">Projects</a>
-            <a href="index.html#comments">Community</a>
+            <a href="#story">Projects</a>
+            <a href="#comments">Community</a>
             <button id="dark-mode-toggle" class="btn-icon" title="Toggle Dark Mode">
                 <i class="fas fa-moon"></i>
             </button>
         </div>
     </nav>
 
-    <div class="awesome-wrapper">
+    <div class="container">
         
-        <div class="bg-shapes">
-            <div class="shape shape1"></div>
-            <div class="shape shape2"></div>
-        </div>
+        <header class="project-header">
+            <h1>OPTIMAL DESIGN OF PROPOTIONAL RESONANT CONTROLLER USING 11 LEVEL MULTILEVEL CASCADED H-BRIDGE INVERTER</h1>
+            <div class="meta-info">
+                <span class="badge">PRO  </span>
+                <span class="stats">
+                    <i class="fas fa-eye"></i>  views &nbsp;
+                    <i class="fas fa-calendar-alt"></i> Updated OCTOMBER 2026
+                </span>
+            </div>
+            <p class="summary">
+<p>This project focuses on designing and optimizing a Proportional-Resonant (PR) controller for an 11-level Cascaded H-Bridge (CHB) multilevel inverter to improve output waveform quality and reduce Total Harmonic Distortion (THD).
+</p>
 
-        <div class="glass-card">
-            <i class="fas fa-microchip pulsing-icon"></i>
-            <h1>System Compiling...</h1>
-            <p>I am currently soldering the final wires and documenting this project. Code, circuits, and logic will be live soon!</p>
+<p><br>The system uses multiple H-bridge power cells connected in series to generate a stepped AC output voltage that closely approximates a sinusoidal waveform. A PR controller is implemented to improve AC tracking performance and minimize steady-state error at the fundamental frequency. An LC filter is used to further suppress switching harmonics and enhance the quality of the output waveform.
+</p>
+
+<p><br>The proposed system is modelled and simulated using MATLAB/Simulink to evaluate its performance, waveform characteristics, and harmonic distortion.           
+ </p>
+            <div class="tags">
+                <span class="tag">MATLAB/SIMULINK</span>
+                <span class="tag">Renewable Energy</span>
+                <span class="tag">Advance Power Electronics</span>
+            </div>
+        </header>
+
+        
+        <div class="content-wrapper">
             
-            <div class="progress-box">
-                <div class="progress-labels">
-                    <span>Documentation Status</span>
-                    <span>85%</span>
+            <main class="main-content">
+                
+                <div class="carousel-container">
+                    <div class="mySlides fade">
+                        <div class="numbertext">1 / 5</div>
+                        <img src="images/speeddetectorckt.jpeg" style="width: 100%; height: 450px; object-fit: contain;" alt="Hardware Setup">
+                        <div class="text">Figure 1: Complete Hardware Setup</div>
+                    </div>
+                    <div class="mySlides fade">
+                        <div class="numbertext">2 / 5</div>
+                        <img src="images/spd3.jpeg" style="width: 100%; height: 450px; object-fit: contain;" alt="Circuit Wiring">
+                        <div class="text">Figure 2: Breadboard Wiring Detail</div>
+                    </div>
+                    <div class="mySlides fade">
+                        <div class="numbertext">3 / 5</div>
+                        <img src="images/spd4.jpeg" style="width: 100%; height: 450px; object-fit: contain;" alt="LCD Output">
+                        <div class="text">Figure 3: LCD Display Output</div>
+                    </div>
+                    <div class="mySlides fade">
+                        <div class="numbertext">4 / 5</div>
+                        <img src="images/spd3.jpeg" style="width: 100%; height: 450px; object-fit: contain;" alt="LCD Output">
+                        <div class="text">Figure 4: LCD Display Output</div>
+                    </div>
+                    <div class="mySlides fade">
+                        <div class="numbertext">5 / 5</div>
+                        <img src="images/spd4.jpeg" style="width: 100%; height: 450px; object-fit: contain;" alt="LCD Output">
+                        <div class="text">Figure 5: LCD Display Output</div>
+                    </div>
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                    <div style="text-align:center; margin-top:10px;">
+                        <span class="dot" onclick="currentSlide(1)"></span> 
+                        <span class="dot" onclick="currentSlide(2)"></span> 
+                        <span class="dot" onclick="currentSlide(3)"></span>
+                        <span class="dot" onclick="currentSlide(4)"></span>
+                        <span class="dot" onclick="currentSlide(5)"></span> 
+                    </div>
                 </div>
-                <div class="progress-bar-bg">
-                    <div class="progress-bar-fill"></div>
+
+                <br>
+                <div class="media-section">
+            <div class="video-wrapper">
+                <video src="images/spd1.mp4" title="Project Video" controls style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 2;"></video>
+                <div class="video-placeholder-overlay">
+                    <i class="fas fa-play-circle"></i>
+                    <p>Watch Project Demo</p>
                 </div>
             </div>
+        </div>
 
-            <a href="index.html" class="btn-outline-awesome"><i class="fas fa-arrow-left"></i> Return to Main Hub</a>
+                <section id="story">
+                    <h2>Project Overview</h2>
+                    <p>T# Optimal Design of Proportional-Resonant Controller for an 11-Level Cascaded H-Bridge Multilevel Inverter
+
+<br>Project Overview
+
+This project focuses on the design, modelling, and optimization of a Proportional-Resonant (PR) controller for an 11-level Cascaded H-Bridge (CHB) multilevel inverter. The primary objective is to improve AC output waveform quality, minimize harmonic distortion, and achieve accurate tracking of a sinusoidal reference signal.
+
+Multilevel inverters are widely used in modern power conversion applications because they can generate high-quality AC voltage waveforms using multiple lower-voltage DC sources and semiconductor switching devices. Compared with conventional two-level inverters, multilevel topologies offer several advantages, including reduced voltage steps, improved waveform quality, and the potential to reduce output filtering requirements.
+
+In this project, an 11-level Cascaded H-Bridge inverter is modelled in MATLAB/Simulink. A Proportional-Resonant controller is designed to regulate the AC output response, while an LC filter is incorporated to attenuate high-frequency switching harmonics. The system's performance is analysed through simulation, with particular emphasis on waveform quality, harmonic distortion, and reference-tracking behaviour.
+<br>
+<br> <strong>1. Cascaded H-Bridge Multilevel Inverter</strong>
+
+The Cascaded H-Bridge topology consists of multiple single-phase H-bridge power cells connected in series on the AC side. Each cell contributes a controlled voltage level to the overall output, allowing the inverter to generate a stepped waveform that approximates a sinusoidal signal.
+
+For an 11-level inverter with equal DC voltage sources, five H-bridge cells are connected in series per phase, producing eleven distinct output voltage levels ranging from \(-5V_{dc}\) to \(+5V_{dc}\), assuming each cell has a DC voltage of \(V_{dc}\).
+
+The stepped output waveform offers a closer approximation to a sinusoidal waveform than a conventional two-level inverter. This can help reduce harmonic content and improve power quality, depending on the switching strategy and operating conditions.
+<br>
+<br>
+<strong>2. Proportional-Resonant Controller Design</strong>
+
+The Proportional-Resonant controller is a control strategy commonly used in AC systems where accurate sinusoidal reference tracking is required. Unlike a conventional Proportional-Integral (PI) controller, which is naturally suited to eliminating steady-state error in DC regulation, a PR controller provides high gain at a selected AC resonant frequency.
+
+The proportional component provides a fast response and helps improve system stability and transient behaviour. The resonant component provides high gain around the fundamental frequency, helping the controlled output track the sinusoidal reference with minimal steady-state error.
+
+An ideal PR controller can be represented as:
+
+\[
+G_{PR}(s)=K_p+\frac{K_r s}{s^2+\omega_0^2}
+\]
+
+Where:
+
+- \(K_p\) is the proportional gain.
+- \(K_r\) is the resonant gain.
+- \(\omega_0\) is the fundamental angular frequency in rad/s.
+- \(s\) is the Laplace operator.
+
+The controller parameters are selected and optimized to achieve the desired control response. In practical implementations, a non-ideal PR controller may be used to provide a finite bandwidth around the resonant frequency.
+<br>
+<br> <strong>3. System Modelling and Control Strategy</strong>
+
+The complete inverter system is developed and simulated in MATLAB/Simulink. The model integrates the multilevel power circuit, control system, switching logic, and output filtering stage.
+
+The control process begins with a sinusoidal reference signal representing the desired AC output. The actual output is compared with the reference to generate an error signal. The PR controller processes this error and generates a control signal for the inverter's switching or modulation strategy.
+
+The switching logic controls the semiconductor devices in the H-bridge cells to produce the required output voltage levels. The resulting waveform passes through an LC filter, which attenuates unwanted high-frequency components before the output is evaluated.
+
+The overall control and simulation process involves:
+
+1. Generating the sinusoidal reference signal.
+2. Measuring and comparing the output with the reference.
+3. Processing the tracking error through the PR controller.
+4. Generating appropriate inverter switching signals.
+5. Producing the 11-level AC output waveform.
+6. Applying LC filtering to suppress switching harmonics.
+7. Evaluating output waveform quality and harmonic distortion.
+<br>
+<br>
+ <strong>4. LC Filter and Harmonic Reduction</strong>
+
+Power electronic inverters generate switching harmonics because semiconductor devices operate through discrete switching states. These harmonics can affect output waveform quality and may cause additional losses or interference in connected equipment.
+
+An LC filter, consisting of an inductor and capacitor, is used to attenuate selected high-frequency harmonic components while allowing the desired fundamental-frequency component to pass.
+
+The filter design involves selecting appropriate inductance and capacitance values based on the fundamental frequency, switching frequency, load conditions, and desired attenuation. Proper coordination between the filter and controller is important because the filter can influence system dynamics and stability.
+
+The effectiveness of harmonic reduction is assessed through output waveform analysis and Total Harmonic Distortion measurements.
+<br>
+<br>
+<strong> 5. Simulation and Performance Analysis</strong>
+
+MATLAB/Simulink is used to model the power circuit and evaluate the behaviour of the controller under the selected simulation conditions.
+
+The key performance parameters include:
+
+- **Output voltage waveform:** Verification of the expected eleven voltage levels.
+- **Reference tracking:** Assessment of how accurately the output follows the sinusoidal reference.
+- **Total Harmonic Distortion (THD):** Measurement of harmonic content in the output voltage or current.
+- **Transient response:** Evaluation of the system's response to changes in reference or operating conditions, where tested.
+- **Filter performance:** Analysis of the LC filter's effectiveness in attenuating switching harmonics.
+- **Controller performance:** Assessment of the selected PR gains and their influence on tracking accuracy and waveform quality.
+
+These simulation results provide a basis for evaluating the effectiveness of the proposed controller and identifying suitable parameter settings for the inverter system.
+<br>
+<br> <strong>6. Applications</strong>
+
+The principles explored in this project are relevant to several power conversion applications, including:
+
+- Solar photovoltaic power conversion systems.
+- Renewable energy integration.
+- Grid-connected inverter systems.
+- Electric drive and industrial power conversion systems.
+- High-power AC conversion applications.
+- Distributed energy resources and modern power systems.
+
+The suitability of the proposed configuration for a particular application depends on its electrical ratings, switching strategy, control design, and operating requirements.
+<br>
+<br> <strong>7. Engineering Skills and Learning Outcomes</strong>
+
+This project provides practical exposure to power electronics, AC control systems, multilevel inverter topologies, and simulation-based engineering analysis.
+
+Key skills developed include:
+
+- Modelling of cascaded H-bridge multilevel inverter circuits.
+- Understanding and implementation of Proportional-Resonant control.
+- Analysis of AC reference tracking and harmonic distortion.
+- Understanding of LC output filter design principles.
+- MATLAB/Simulink-based system modelling and simulation.
+- Interpretation of voltage and current waveforms.
+- Evaluation of power quality and controller performance.
+
+<br> 
+<br>
+<strong>Conclusion</strong>
+
+The project investigates the use of a Proportional-Resonant controller with an 11-level Cascaded H-Bridge multilevel inverter to improve sinusoidal reference tracking and output power quality. By combining multilevel voltage generation, PR-based control, and LC filtering, the system provides a framework for studying harmonic reduction and controlled AC power conversion.
+
+The MATLAB/Simulink model supports the analysis of inverter waveforms, controller behaviour, and harmonic performance. The project demonstrates the application of power electronics and control engineering principles to the development of improved multilevel inverter systems.
+</p>
+                    
+                    <h3>Hardware Architecture</h3>
+                    <ul>
+                        <li><strong>Microcontroller:</strong> Raspberry Pi</li>
+                        <li><strong>Sensing Components:</strong> Voltage, Current Sensor, Zero Crossing Detector, DCBaising CIrcuit </li>
+                        <li><strong>Visual Output:</strong> 16x2 I2C LCD Display</li>
+                        <li><strong>Software:</strong> Matlab 2024b , Matlab/simulink</li>
+                        <li><strong>Connectivity:</strong> R Y B GND Cable as per need</li>
+                    </ul>
+
+                    <div class="alert-box green">
+                        <strong>Physical Component:</strong> All the Physical component should be of proper rating.
+                    </div>
+                    <div class="alert-box yellow">
+                        <strong>Measuring :</strong> The project will need a Multimeter , Oscilloscope , Function generator
+                    </div>
+                    <div class="alert-box red">
+                        <strong>Danger :</strong> All the Values inserted in the components of Matlab or Physical component should be under the rating to get desired values.
+                    </div>
+                </section>
+
+                <section id="code">
+                    <h2>Arduino Code</h2>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span>main.ino</span>
+                            <button class="copy-btn"><i class="fas fa-copy"></i> Copy</button>
+                        </div>
+                        
+                        <div id="code-container" class="code-container">
+                            <pre><code class="language-cpp">
+
+import numpy as np
+
+
+def rms(x):
+    """Root-mean-square value."""
+    x = np.asarray(x, dtype=float)
+    return float(np.sqrt(np.mean(x ** 2)))
+
+
+def analyse_inverter(
+    voltage_reference,
+    voltage_measured,
+    current_measured,
+    sample_rate_hz,
+    fundamental_hz=50.0,
+    current_reference=None,
+    filter_L_h=None,
+    filter_C_f=None,
+    max_harmonic=40
+):
+    """
+    Analyse synchronized sampled inverter waveforms.
+
+    Voltage/current arrays must use calibrated engineering units:
+    volts and amperes.
+
+    Use a steady-state window containing an integer number
+    of fundamental cycles for best FFT accuracy.
+    """
+
+    vr = np.asarray(voltage_reference, dtype=float)
+    v = np.asarray(voltage_measured, dtype=float)
+    i = np.asarray(current_measured, dtype=float)
+
+    if not (len(vr) == len(v) == len(i)):
+        raise ValueError("Voltage and current arrays must match")
+
+    if len(v) < 16:
+        raise ValueError("Insufficient samples")
+
+    if not all(np.all(np.isfinite(x)) for x in (vr, v, i)):
+        raise ValueError("Invalid or non-finite samples")
+
+    if sample_rate_hz <= 0 or fundamental_hz <= 0:
+        raise ValueError("Invalid sampling/fundamental frequency")
+
+    if fundamental_hz >= sample_rate_hz / 2:
+        raise ValueError("Fundamental exceeds Nyquist limit")
+
+    # 1. Voltage difference
+    voltage_error = vr - v
+    voltage_rms_error = rms(voltage_error)
+
+    voltage_error_mean = float(np.mean(voltage_error))
+    voltage_error_peak = float(np.max(np.abs(voltage_error)))
+
+    # 2. Current difference
+    current_rms = rms(i)
+    current_rms_error = None
+    current_error_peak = None
+
+    if current_reference is not None:
+        ir = np.asarray(current_reference, dtype=float)
+
+        if len(ir) != len(i) or not np.all(np.isfinite(ir)):
+            raise ValueError("Invalid current reference")
+
+        current_error = ir - i
+        current_rms_error = rms(current_error)
+        current_error_peak = float(
+            np.max(np.abs(current_error))
+        )
+
+    # 3. Fundamental phase and THD
+    # Remove DC offset and apply a Hann window.
+    def spectrum(x):
+        x = np.asarray(x, dtype=float)
+        x = x - np.mean(x)
+
+        window = np.hanning(len(x))
+        return np.fft.rfft(x * window)
+
+    V = spectrum(v)
+    I = spectrum(i)
+
+    freqs = np.fft.rfftfreq(
+        len(v), d=1.0 / sample_rate_hz
+    )
+
+    fundamental_bin = int(
+        round(fundamental_hz * len(v) / sample_rate_hz)
+    )
+
+    if fundamental_bin < 1 or fundamental_bin >= len(freqs):
+        raise ValueError("Fundamental bin unavailable")
+
+    def phase_deg(X):
+        return float(np.degrees(np.angle(X[fundamental_bin])))
+
+    voltage_phase = phase_deg(V)
+    current_phase = phase_deg(I)
+
+    # Positive angle means current leads voltage.
+    phase_difference = (
+        current_phase - voltage_phase + 180.0
+    ) % 360.0 - 180.0
+
+    # THD from harmonic magnitudes relative to fundamental.
+    def calculate_thd(X):
+        fundamental_mag = abs(X[fundamental_bin])
+
+        if fundamental_mag <= 1e-12:
+            return None
+
+        harmonic_power = 0.0
+
+        for h in range(2, max_harmonic + 1):
+            idx = int(round(
+                h * fundamental_hz * len(v) / sample_rate_hz
+            ))
+
+            if idx < len(X) and h * fundamental_hz < sample_rate_hz / 2:
+                harmonic_power += abs(X[idx]) ** 2
+
+        return float(
+            100.0 * np.sqrt(harmonic_power) / fundamental_mag
+        )
+
+    voltage_thd = calculate_thd(V)
+    current_thd = calculate_thd(I)
+
+    # 4. LC filter natural/resonant frequency, if L and C are known.
+    filter_resonance_hz = None
+
+    if filter_L_h is not None and filter_C_f is not None:
+        if filter_L_h <= 0 or filter_C_f <= 0:
+            raise ValueError("L and C must be positive")
+
+        filter_resonance_hz = float(
+            1.0 / (
+                2.0 * np.pi *
+                np.sqrt(filter_L_h * filter_C_f)
+            )
+        )
+
+    return {
+        "voltage_rms_error_V": voltage_rms_error,
+        "voltage_mean_error_V": voltage_error_mean,
+        "voltage_peak_error_V": voltage_error_peak,
+        "current_rms_A": current_rms,
+        "current_rms_error_A": current_rms_error,
+        "current_peak_error_A": current_error_peak,
+        "phase_difference_deg": phase_difference,
+        "voltage_thd_percent": voltage_thd,
+        "current_thd_percent": current_thd,
+        "filter_resonance_hz": filter_resonance_hz
+    }
+
+
+if __name__ == "__main__":
+    # Demonstration only: synthetic signals, NOT hardware data.
+    fs = 10000.0
+    f0 = 50.0
+    t = np.arange(0, 0.2, 1.0 / fs)
+
+    v_ref = 100.0 * np.sin(2 * np.pi * f0 * t)
+    v_meas = (
+        98.0 * np.sin(2 * np.pi * f0 * t)
+        + 3.0 * np.sin(2 * np.pi * 5 * f0 * t)
+    )
+
+    i_ref = 2.0 * np.sin(2 * np.pi * f0 * t)
+    i_meas = 1.8 * np.sin(
+        2 * np.pi * f0 * t - np.radians(20)
+    )
+
+    result = analyse_inverter(
+        voltage_reference=v_ref,
+        voltage_measured=v_meas,
+        current_measured=i_meas,
+        current_reference=i_ref,
+        sample_rate_hz=fs,
+        fundamental_hz=f0,
+        filter_L_h=0.01,
+        filter_C_f=100e-6
+    )
+
+    for name, value in result.items():
+        print(f"{name}: {value}")
+
+                            </code></pre>
+                            <div class="show-more-overlay" id="overlay">
+                                <button class="btn-show-more" id="show-more-code">Show Full Code</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="comments" class="comments-section">
+                    <h2>Discussion</h2>
+                    
+                    <div id="comment-list">
+                        <div class="comment">
+                            <div class="comment-avatar"><i class="fas fa-user"></i></div>
+                            <div class="comment-body">
+                                <h4>TechGuru99 <span class="comment-date">20 days ago</span></h4>
+                                <p>Great project! Does this work with the STM32 as well?</p>
+                            </div>
+                        </div>
+
+                        <div class="comment">
+                            <div class="comment-avatar"><i class="fas fa-user-circle"></i></div>
+                            <div class="comment-body">
+                                <h4>MakerJoe <span class="comment-date">3 day ago</span></h4>
+                                <p>Yes, just change the pin definitions and use 3.3V logic.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="hidden-comments" style="display: none;">
+                        <div class="comment">
+                            <div class="comment-avatar"><i class="fas fa-robot"></i></div>
+                            <div class="comment-body">
+                                <h4>ArduinoFan <span class="comment-date">12 hours ago</span></h4>
+                                <p>Thanks for the code! I used this for my college project.</p>
+                            </div>
+                        </div>
+                        <div class="comment">
+                            <div class="comment-avatar"><i class="fas fa-bolt"></i></div>
+                            <div class="comment-body">
+                                <h4>ElectroWizard <span class="comment-date">5 hours ago</span></h4>
+                                <p>Can you add a fritzing diagram? That would be helpful.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button id="load-more-btn" class="btn-secondary">Load More Comments</button>
+
+                    <div class="comment-input-area">
+                        <textarea id="comment-text" placeholder="Leave a comment..."></textarea>
+                        <button id="post-comment-btn" class="btn-primary">Post Comment</button>
+                    </div>
+                </section>
+
+            </main>
+
+            <aside class="sidebar-wrapper">
+                <div class="sidebar-sticky">
+                    
+                    <div class="widget author-widget">
+                        <div class="author-header">
+                            <img src="https://placehold.co/60x60/1e293b/ffffff?text=PP" alt="Author" class="author-img">
+                            <div>
+                                <h4>Parth Pahanpate</h4>
+                                <span class="author-role">Electrical Engineer</span>
+                            </div>
+                        </div>
+                        <p>Passionate about Engineering and Innovation</p>
+                        
+                        <a href="https://www.linkedin.com/in/parth-pahanpate-7b1054280" target="_blank" class="btn-linkedin" style="background-color: #1e293b; border-color: #1e293b;">
+                            <i class="fab fa-linkedin"></i> Connect on LinkedIn
+                        </a>
+                    </div>
+
+                    <div class="widget toc-widget">
+                        <h3>Table of Contents</h3>
+                        <ul>
+                            <li><a href="#story" class="toc-link">Project Story</a></li>
+                            <li><a href="#matlab" class="toc-link">MATLAB Visualization</a></li>
+                            <li><a href="#code" class="toc-link">Arduino Code</a></li>
+                            <li><a href="#comments" class="toc-link">Discussion</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="widget tools-widget">
+                        <h3><i class="fas fa-toolbox"></i> Tools & Apps</h3>
+                        <ul class="component-list">
+                            <li><i class="fas fa-laptop-code"></i> Matlab/Simulink</li>
+                            <li><i class="fas fa-minus"></i> Multimeter</li>
+                            <li><i class="fas fa-x"></i> Function Generation</li>
+                            <li><i class="fas fa-o"></i> Oscilloscope</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="widget tools-widget">
+                        <h3><i class="fas fa-toolbox"></i> Components Needed</h3>
+                        <ul class="component-list">
+                            <li><i class="fas fa-microchip"></i> Raspberry pi 4</li>
+                            <li><i class="fa-solid fa-bolt"></i> Breadboard</li>
+                            <li><i class="fas fa-laptop"></i> OLED I2C Display SH1106 (128x64)</li>
+                            <li><i class="fas fa-burn"></i> Extension board</li>
+                            <li> <i class="fa-duotone fa-solid fa-chess-board"></i>11 level inverter</li>
+                        </ul>
+                    </div>
+
+                    <div class="widget download-widget">
+                        <h3><i class="fas fa-download"></i> Downloads</h3>
+                        
+                        <a href="data:text/plain;charset=utf-8,Your Arduino Code Here" download="project_code.ino" class="download-link">
+                            <i class="fas fa-file-code"></i> Source Code (.ino)
+                        </a>
+                        
+                        <a href="data:text/plain;charset=utf-8,Matlab Script Content" download="script.m" class="download-link">
+                            <i class="fas fa-chart-line"></i> MATLAB Script (.m)
+                        </a>
+                        
+                        <a href="data:application/pdf;base64,JVBERi..." download="documentation.pdf" class="download-link">
+                            <i class="fas fa-file-pdf"></i> Documentation (.pdf)
+                        </a>
+                    </div>
+
+                    <div class="widget components-widget">
+                        <h3>Where to Buy Components</h3>
+                        <div class="buy-suggestions">
+                            <a href="#" target="_blank">Amazon</a> • 
+                            <a href="#" target="_blank">Robu.in</a> • 
+                            <a href="#" target="_blank">Zobotic</a>
+                        </div>
+                    </div>
+
+                </div>
+            </aside>
+
         </div>
     </div>
 
-    <script src="script1.js"></script>
+    <button id="back-to-top" title="Go to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-c.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-matlab.min.js"></script>
     
+    <script src="script1.js"></script>
+
+    <script>
+        // Script for the Show More Button
+        document.getElementById('show-more-code').addEventListener('click', function() {
+            const container = document.getElementById('code-container');
+            const overlay = document.getElementById('overlay');
+            
+            if (container.classList.contains('expanded')) {
+                container.classList.remove('expanded');
+                this.textContent = 'Show Full Code';
+                window.location.hash = '#code'; // Scroll back to code start
+            } else {
+                container.classList.add('expanded');
+                this.textContent = 'Show Less';
+            }
+        });
+    </script>
 </body>
 </html>
